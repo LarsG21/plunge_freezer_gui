@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1060</width>
+    <height>654</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(53, 53, 53);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="top_bar">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(35, 35, 35);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_toggle">
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(85, 170, 255);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="toggle_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 255);
+border: px solid
+</string>
+            </property>
+            <property name="text">
+             <string>Toggle</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_top">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item alignment="Qt::AlignRight">
+           <widget class="QPushButton" name="go_settings_button">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+	border: 0px solid
+}</string>
+            </property>
+            <property name="text">
+             <string>Settings</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="content">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_left_menu">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(35, 35, 35);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item alignment="Qt::AlignTop">
+           <widget class="QFrame" name="frame_top_menues">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="button_page_home">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+	border: 0px solid
+}</string>
+               </property>
+               <property name="text">
+                <string>Home</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="button_page_plots">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+	border: 0px solid
+}</string>
+               </property>
+               <property name="text">
+                <string>Plots</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="button_page_Data">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+	border: 0px solid
+}</string>
+               </property>
+               <property name="text">
+                <string>Data</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_pages">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QStackedWidget" name="pages_widget">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="page_home">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QGroupBox" name="upper_chamer_box">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255)</string>
+                </property>
+                <property name="title">
+                 <string>Upper Chamber</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QGroupBox" name="temp_box_2">
+                   <property name="title">
+                    <string>Temperature</string>
+                   </property>
+                   <widget class="QDoubleSpinBox" name="temp_control_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>160</x>
+                      <y>80</y>
+                      <width>141</width>
+                      <height>81</height>
+                     </rect>
+                    </property>
+                    <property name="value">
+                     <double>22.000000000000000</double>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="temp_lable_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>40</x>
+                      <y>90</y>
+                      <width>91</width>
+                      <height>51</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>TextLabel</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="humid_box_2">
+                   <property name="title">
+                    <string>Humitity</string>
+                   </property>
+                   <widget class="QDoubleSpinBox" name="humid_control_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>160</x>
+                      <y>80</y>
+                      <width>141</width>
+                      <height>81</height>
+                     </rect>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="value">
+                     <double>80.000000000000000</double>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="humid_lable_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>40</x>
+                      <y>90</y>
+                      <width>91</width>
+                      <height>51</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>TextLabel</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="blotting_box_2">
+                   <property name="title">
+                    <string>Blotting</string>
+                   </property>
+                   <widget class="QDoubleSpinBox" name="blotting_force_control_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>160</x>
+                      <y>20</y>
+                      <width>121</width>
+                      <height>61</height>
+                     </rect>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="label_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>30</y>
+                      <width>61</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>15</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Force:</string>
+                    </property>
+                   </widget>
+                   <widget class="QDoubleSpinBox" name="blotting_time_control_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>160</x>
+                      <y>90</y>
+                      <width>121</width>
+                      <height>61</height>
+                     </rect>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="label_5">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>100</y>
+                      <width>61</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Arial</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Time:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="label_6">
+                    <property name="geometry">
+                     <rect>
+                      <x>40</x>
+                      <y>170</y>
+                      <width>81</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>15</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Number:</string>
+                    </property>
+                   </widget>
+                   <widget class="QDoubleSpinBox" name="blotting_number_control_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>160</x>
+                      <y>160</y>
+                      <width>121</width>
+                      <height>61</height>
+                     </rect>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="spacer" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="cryo_box">
+                <property name="cursor">
+                 <cursorShape>ArrowCursor</cursorShape>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="whatsThis">
+                 <string/>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255)</string>
+                </property>
+                <property name="title">
+                 <string>Cryo Bath</string>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                 <item>
+                  <widget class="QGroupBox" name="temp_box_bottom_4">
+                   <property name="title">
+                    <string>Temperature</string>
+                   </property>
+                   <widget class="QDoubleSpinBox" name="temp_control_botttom_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>160</x>
+                      <y>80</y>
+                      <width>141</width>
+                      <height>81</height>
+                     </rect>
+                    </property>
+                    <property name="minimum">
+                     <double>-200.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>22.000000000000000</double>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="temp_lable_bottom_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>40</x>
+                      <y>90</y>
+                      <width>91</width>
+                      <height>51</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>TextLabel</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <widget class="QProgressBar" name="progressBar">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>80</y>
+                      <width>211</width>
+                      <height>23</height>
+                     </rect>
+                    </property>
+                    <property name="value">
+                     <number>24</number>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="label_22">
+                    <property name="geometry">
+                     <rect>
+                      <x>110</x>
+                      <y>20</y>
+                      <width>111</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Status</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="label_13">
+                    <property name="geometry">
+                     <rect>
+                      <x>110</x>
+                      <y>150</y>
+                      <width>121</width>
+                      <height>51</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Current Step</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="control_box_4">
+                   <property name="title">
+                    <string>Controls</string>
+                   </property>
+                   <widget class="QCommandLinkButton" name="start_button_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>30</y>
+                      <width>185</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Start</string>
+                    </property>
+                   </widget>
+                   <widget class="QCommandLinkButton" name="shutdown_button_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>180</y>
+                      <width>185</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Shutdown</string>
+                    </property>
+                    <property name="autoDefault">
+                     <bool>true</bool>
+                    </property>
+                    <property name="default">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_plots">
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="font">
+                 <font>
+                  <pointsize>40</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Page Plots</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_settings">
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="settings_box">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255)</string>
+                </property>
+                <property name="title">
+                 <string>Settings</string>
+                </property>
+                <widget class="QWidget" name="horizontalLayoutWidget_4">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>20</y>
+                   <width>931</width>
+                   <height>231</height>
+                  </rect>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QGroupBox" name="stepper_box">
+                    <property name="title">
+                     <string>Steppers</string>
+                    </property>
+                    <widget class="QDoubleSpinBox" name="plunge_stepper_control">
+                     <property name="geometry">
+                      <rect>
+                       <x>160</x>
+                       <y>30</y>
+                       <width>141</width>
+                       <height>61</height>
+                      </rect>
+                     </property>
+                     <property name="value">
+                      <double>22.000000000000000</double>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="plunging_lable">
+                     <property name="geometry">
+                      <rect>
+                       <x>10</x>
+                       <y>40</y>
+                       <width>121</width>
+                       <height>51</height>
+                      </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Arial</family>
+                       <pointsize>16</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Plunging Arm</string>
+                     </property>
+                    </widget>
+                    <widget class="QDoubleSpinBox" name="cryo_stepper_control">
+                     <property name="geometry">
+                      <rect>
+                       <x>160</x>
+                       <y>140</y>
+                       <width>141</width>
+                       <height>61</height>
+                      </rect>
+                     </property>
+                     <property name="value">
+                      <double>22.000000000000000</double>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="cryo_lable">
+                     <property name="geometry">
+                      <rect>
+                       <x>10</x>
+                       <y>150</y>
+                       <width>121</width>
+                       <height>51</height>
+                      </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Arial</family>
+                       <pointsize>16</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Cryo Platfom</string>
+                     </property>
+                    </widget>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="data_box">
+                    <property name="title">
+                     <string>Configuration</string>
+                    </property>
+                    <widget class="QWidget" name="verticalLayoutWidget">
+                     <property name="geometry">
+                      <rect>
+                       <x>10</x>
+                       <y>20</y>
+                       <width>291</width>
+                       <height>201</height>
+                      </rect>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_8">
+                      <item>
+                       <widget class="QRadioButton" name="buzzer_button">
+                        <property name="text">
+                         <string>Buzzer on</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_3">
+                        <property name="text">
+                         <string>RadioButton</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton">
+                        <property name="text">
+                         <string>RadioButton</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="blotting_box_3">
+                    <property name="title">
+                     <string>Blotting</string>
+                    </property>
+                    <widget class="QDoubleSpinBox" name="blotting_force_control_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>160</x>
+                       <y>20</y>
+                       <width>121</width>
+                       <height>61</height>
+                      </rect>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_10">
+                     <property name="geometry">
+                      <rect>
+                       <x>60</x>
+                       <y>30</y>
+                       <width>61</width>
+                       <height>41</height>
+                      </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>15</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Force:</string>
+                     </property>
+                    </widget>
+                    <widget class="QDoubleSpinBox" name="blotting_time_control_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>160</x>
+                       <y>90</y>
+                       <width>121</width>
+                       <height>61</height>
+                      </rect>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_11">
+                     <property name="geometry">
+                      <rect>
+                       <x>60</x>
+                       <y>100</y>
+                       <width>61</width>
+                       <height>41</height>
+                      </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>15</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Time:</string>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_12">
+                     <property name="geometry">
+                      <rect>
+                       <x>40</x>
+                       <y>170</y>
+                       <width>81</width>
+                       <height>41</height>
+                      </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>15</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Number:</string>
+                     </property>
+                    </widget>
+                    <widget class="QDoubleSpinBox" name="blotting_number_control_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>160</x>
+                       <y>160</y>
+                       <width>121</width>
+                       <height>61</height>
+                      </rect>
+                     </property>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_dataExport">
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="font">
+                 <font>
+                  <pointsize>40</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Page Data</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
