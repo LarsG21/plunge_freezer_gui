@@ -367,7 +367,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="pages_widget">
             <property name="currentIndex">
-             <number>0</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -737,19 +737,19 @@ QPushButton:hover{
             <widget class="QWidget" name="page_settings">
              <layout class="QVBoxLayout" name="verticalLayout_9">
               <property name="spacing">
-               <number>0</number>
+               <number>6</number>
               </property>
               <property name="leftMargin">
-               <number>0</number>
+               <number>9</number>
               </property>
               <property name="topMargin">
-               <number>0</number>
+               <number>9</number>
               </property>
               <property name="rightMargin">
-               <number>0</number>
+               <number>9</number>
               </property>
               <property name="bottomMargin">
-               <number>0</number>
+               <number>9</number>
               </property>
               <item>
                <widget class="QGroupBox" name="settings_box">
