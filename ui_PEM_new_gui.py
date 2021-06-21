@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guidonqFo.ui'
+## Form generated from reading UI file 'PEM_new_guigVDIbB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -449,7 +449,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.pages_widget.setCurrentIndex(3)
+        self.pages_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

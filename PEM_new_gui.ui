@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1060</width>
-    <height>654</height>
+    <width>967</width>
+    <height>636</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -367,7 +367,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="pages_widget">
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
