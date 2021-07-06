@@ -24,6 +24,7 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setStyleSheet(open('Combinear/Combinear.qss').read())
 
         ## TOGGLE/BURGUER MENU
         ########################################################################
