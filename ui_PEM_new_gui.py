@@ -1,25 +1,19 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiYcIHSM.ui'
+## Form generated from reading UI file 'PEM_new_guiiljTPn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-
-
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-
-
 class Ui_MainWindow(object):
-
-
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -1066,7 +1060,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.toggle_button.sizePolicy().hasHeightForWidth())
         self.toggle_button.setSizePolicy(sizePolicy)
-        self.toggle_button.setMinimumSize(QSize(70, 0))
+        self.toggle_button.setMinimumSize(QSize(90, 0))
         self.toggle_button.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: rgba(85, 170, 255,20%);\n"
 "border: px solid\n"
@@ -1089,6 +1083,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.frame_2 = QFrame(self.frame_top)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_6.addWidget(self.frame_2)
+
         self.go_settings_button = QPushButton(self.frame_top)
         self.go_settings_button.setObjectName(u"go_settings_button")
         self.go_settings_button.setMaximumSize(QSize(100, 40))
@@ -1147,7 +1148,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.button_page_home.sizePolicy().hasHeightForWidth())
         self.button_page_home.setSizePolicy(sizePolicy1)
-        self.button_page_home.setMinimumSize(QSize(70, 60))
+        self.button_page_home.setMinimumSize(QSize(90, 60))
         self.button_page_home.setMaximumSize(QSize(16777215, 16777215))
         self.button_page_home.setBaseSize(QSize(60, 60))
         self.button_page_home.setAcceptDrops(False)
@@ -1177,7 +1178,7 @@ class Ui_MainWindow(object):
 
         self.button_page_plots = QPushButton(self.frame_top_menues)
         self.button_page_plots.setObjectName(u"button_page_plots")
-        self.button_page_plots.setMinimumSize(QSize(70, 60))
+        self.button_page_plots.setMinimumSize(QSize(90, 60))
         self.button_page_plots.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(35, 35, 35);\n"
@@ -1196,7 +1197,7 @@ class Ui_MainWindow(object):
 
         self.button_page_Data = QPushButton(self.frame_top_menues)
         self.button_page_Data.setObjectName(u"button_page_Data")
-        self.button_page_Data.setMinimumSize(QSize(70, 60))
+        self.button_page_Data.setMinimumSize(QSize(90, 60))
         self.button_page_Data.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(35, 35, 35);\n"
@@ -1319,7 +1320,7 @@ class Ui_MainWindow(object):
         self.temp_control_botttom_4.setObjectName(u"temp_control_botttom_4")
         self.temp_control_botttom_4.setGeometry(QRect(160, 80, 141, 81))
         self.temp_control_botttom_4.setMinimum(-200.000000000000000)
-        self.temp_control_botttom_4.setValue(22.000000000000000)
+        self.temp_control_botttom_4.setValue(-190.000000000000000)
         self.temp_lable_bottom_4 = QLabel(self.temp_box_bottom_4)
         self.temp_lable_bottom_4.setObjectName(u"temp_lable_bottom_4")
         self.temp_lable_bottom_4.setGeometry(QRect(40, 90, 91, 51))
@@ -1333,16 +1334,16 @@ class Ui_MainWindow(object):
         self.progressBar = QProgressBar(self.frame)
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setGeometry(QRect(60, 80, 211, 23))
-        self.progressBar.setValue(24)
+        self.progressBar.setValue(42)
         self.label_22 = QLabel(self.frame)
         self.label_22.setObjectName(u"label_22")
         self.label_22.setGeometry(QRect(110, 20, 111, 41))
         font2 = QFont()
         font2.setPointSize(16)
         self.label_22.setFont(font2)
-        self.label_13 = QLabel(self.frame)
-        self.label_13.setObjectName(u"label_13")
-        self.label_13.setGeometry(QRect(110, 150, 121, 51))
+        self.current_step_label = QLabel(self.frame)
+        self.current_step_label.setObjectName(u"current_step_label")
+        self.current_step_label.setGeometry(QRect(110, 150, 121, 51))
 
         self.horizontalLayout_11.addWidget(self.frame)
 
@@ -1350,13 +1351,17 @@ class Ui_MainWindow(object):
         self.control_box_4.setObjectName(u"control_box_4")
         self.start_button_4 = QCommandLinkButton(self.control_box_4)
         self.start_button_4.setObjectName(u"start_button_4")
-        self.start_button_4.setGeometry(QRect(60, 30, 185, 41))
+        self.start_button_4.setGeometry(QRect(60, 100, 185, 41))
         self.start_button_4.setStyleSheet(u"")
         self.shutdown_button_4 = QCommandLinkButton(self.control_box_4)
         self.shutdown_button_4.setObjectName(u"shutdown_button_4")
         self.shutdown_button_4.setGeometry(QRect(60, 180, 185, 41))
         self.shutdown_button_4.setAutoDefault(True)
         self.shutdown_button_4.setDefault(False)
+        self.prep_button = QCommandLinkButton(self.control_box_4)
+        self.prep_button.setObjectName(u"prep_button")
+        self.prep_button.setGeometry(QRect(60, 30, 185, 41))
+        self.prep_button.setStyleSheet(u"")
 
         self.horizontalLayout_11.addWidget(self.control_box_4)
 
@@ -1387,72 +1392,67 @@ class Ui_MainWindow(object):
         self.stepper_box.setObjectName(u"stepper_box")
         self.plunge_stepper_control = QDoubleSpinBox(self.stepper_box)
         self.plunge_stepper_control.setObjectName(u"plunge_stepper_control")
-        self.plunge_stepper_control.setGeometry(QRect(160, 30, 141, 61))
+        self.plunge_stepper_control.setGeometry(QRect(160, 50, 141, 61))
         self.plunge_stepper_control.setValue(22.000000000000000)
         self.plunging_lable = QLabel(self.stepper_box)
         self.plunging_lable.setObjectName(u"plunging_lable")
-        self.plunging_lable.setGeometry(QRect(10, 40, 121, 51))
+        self.plunging_lable.setGeometry(QRect(10, 60, 121, 51))
         self.plunging_lable.setFont(font1)
         self.cryo_stepper_control = QDoubleSpinBox(self.stepper_box)
         self.cryo_stepper_control.setObjectName(u"cryo_stepper_control")
-        self.cryo_stepper_control.setGeometry(QRect(160, 140, 141, 61))
+        self.cryo_stepper_control.setGeometry(QRect(160, 160, 141, 61))
         self.cryo_stepper_control.setValue(22.000000000000000)
         self.cryo_lable = QLabel(self.stepper_box)
         self.cryo_lable.setObjectName(u"cryo_lable")
-        self.cryo_lable.setGeometry(QRect(10, 150, 121, 51))
+        self.cryo_lable.setGeometry(QRect(10, 170, 121, 51))
         self.cryo_lable.setFont(font1)
 
         self.horizontalLayout_8.addWidget(self.stepper_box)
 
         self.data_box = QGroupBox(self.settings_box)
         self.data_box.setObjectName(u"data_box")
-        self.verticalLayoutWidget = QWidget(self.data_box)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 20, 291, 201))
-        self.verticalLayout_8 = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.buzzer_button = QCheckBox(self.verticalLayoutWidget)
+        self.buzzer_button = QCheckBox(self.data_box)
         self.buzzer_button.setObjectName(u"buzzer_button")
-
-        self.verticalLayout_8.addWidget(self.buzzer_button)
-
-        self.checkBox_3 = QCheckBox(self.verticalLayoutWidget)
+        self.buzzer_button.setGeometry(QRect(10, 70, 289, 14))
+        self.checkBox_3 = QCheckBox(self.data_box)
         self.checkBox_3.setObjectName(u"checkBox_3")
-
-        self.verticalLayout_8.addWidget(self.checkBox_3)
-
-        self.checkBox = QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_3.setGeometry(QRect(10, 110, 289, 14))
+        self.checkBox = QCheckBox(self.data_box)
         self.checkBox.setObjectName(u"checkBox")
-
-        self.verticalLayout_8.addWidget(self.checkBox)
-
+        self.checkBox.setGeometry(QRect(10, 150, 289, 14))
 
         self.horizontalLayout_8.addWidget(self.data_box)
 
         self.blotting_box_3 = QGroupBox(self.settings_box)
         self.blotting_box_3.setObjectName(u"blotting_box_3")
-        self.blotting_force_control_3 = QDoubleSpinBox(self.blotting_box_3)
-        self.blotting_force_control_3.setObjectName(u"blotting_force_control_3")
-        self.blotting_force_control_3.setGeometry(QRect(160, 20, 121, 61))
+        self.calib_right = QDoubleSpinBox(self.blotting_box_3)
+        self.calib_right.setObjectName(u"calib_right")
+        self.calib_right.setGeometry(QRect(160, 38, 121, 61))
+        self.calib_right.setDecimals(0)
+        self.calib_right.setMinimum(-100.000000000000000)
+        self.calib_right.setMaximum(100.000000000000000)
+        self.calib_right.setValue(0.000000000000000)
         self.label_10 = QLabel(self.blotting_box_3)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setGeometry(QRect(60, 30, 61, 41))
+        self.label_10.setGeometry(QRect(20, 48, 121, 41))
         self.label_10.setFont(font)
-        self.blotting_time_control_3 = QDoubleSpinBox(self.blotting_box_3)
-        self.blotting_time_control_3.setObjectName(u"blotting_time_control_3")
-        self.blotting_time_control_3.setGeometry(QRect(160, 90, 121, 61))
+        self.calib_left = QDoubleSpinBox(self.blotting_box_3)
+        self.calib_left.setObjectName(u"calib_left")
+        self.calib_left.setGeometry(QRect(160, 108, 121, 61))
+        self.calib_left.setDecimals(0)
+        self.calib_left.setMinimum(-100.000000000000000)
         self.label_11 = QLabel(self.blotting_box_3)
         self.label_11.setObjectName(u"label_11")
-        self.label_11.setGeometry(QRect(60, 100, 61, 41))
+        self.label_11.setGeometry(QRect(20, 118, 111, 41))
         self.label_11.setFont(font)
-        self.label_12 = QLabel(self.blotting_box_3)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setGeometry(QRect(40, 170, 81, 41))
-        self.label_12.setFont(font)
-        self.blotting_number_control_3 = QDoubleSpinBox(self.blotting_box_3)
-        self.blotting_number_control_3.setObjectName(u"blotting_number_control_3")
-        self.blotting_number_control_3.setGeometry(QRect(160, 160, 121, 61))
+        self.calib_sucess_label = QLabel(self.blotting_box_3)
+        self.calib_sucess_label.setObjectName(u"calib_sucess_label")
+        self.calib_sucess_label.setGeometry(QRect(20, 188, 111, 41))
+        self.calib_sucess_label.setFont(font)
+        self.calib_sucess_label.setStyleSheet(u"color: rgb(0, 170, 0);")
+        self.calib_save_button = QPushButton(self.blotting_box_3)
+        self.calib_save_button.setObjectName(u"calib_save_button")
+        self.calib_save_button.setGeometry(QRect(161, 180, 121, 61))
 
         self.horizontalLayout_8.addWidget(self.blotting_box_3)
 
@@ -1495,7 +1495,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.button_page_home.setDefault(False)
-        self.pages_widget.setCurrentIndex(1)
+        self.pages_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1530,10 +1530,11 @@ class Ui_MainWindow(object):
         self.temp_box_bottom_4.setTitle(QCoreApplication.translate("MainWindow", u"Temperature", None))
         self.temp_lable_bottom_4.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"Status", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Current Step", None))
+        self.current_step_label.setText(QCoreApplication.translate("MainWindow", u"Current Step", None))
         self.control_box_4.setTitle(QCoreApplication.translate("MainWindow", u"Controls", None))
         self.start_button_4.setText(QCoreApplication.translate("MainWindow", u"Start", None))
         self.shutdown_button_4.setText(QCoreApplication.translate("MainWindow", u"Shutdown", None))
+        self.prep_button.setText(QCoreApplication.translate("MainWindow", u"Preheat", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
         self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))
@@ -1542,10 +1543,11 @@ class Ui_MainWindow(object):
         self.buzzer_button.setText(QCoreApplication.translate("MainWindow", u"Buzzer on", None))
         self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
         self.checkBox.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
-        self.blotting_box_3.setTitle(QCoreApplication.translate("MainWindow", u"Blotting", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Force:", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Time:", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Number:", None))
+        self.blotting_box_3.setTitle(QCoreApplication.translate("MainWindow", u"Blotting Calibration", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Right Arm", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Left Arm", None))
+        self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"Sucess", None))
+        self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Data", None))
     # retranslateUi
 

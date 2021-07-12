@@ -1106,7 +1106,7 @@ QProgressBar::chunk
             </property>
             <property name="minimumSize">
              <size>
-              <width>70</width>
+              <width>90</width>
               <height>0</height>
              </size>
             </property>
@@ -1344,7 +1344,7 @@ QPushButton:hover{
                 <set>Qt::ImhNone</set>
                </property>
                <property name="text">
-                <string>    </string>
+                <string/>
                </property>
                <property name="icon">
                 <iconset>
@@ -1390,7 +1390,7 @@ QPushButton:hover{
 }</string>
                </property>
                <property name="text">
-                <string>    </string>
+                <string/>
                </property>
                <property name="icon">
                 <iconset>
@@ -1424,7 +1424,7 @@ QPushButton:hover{
 }</string>
                </property>
                <property name="text">
-                <string>    </string>
+                <string/>
                </property>
                <property name="icon">
                 <iconset>
@@ -1477,7 +1477,7 @@ QPushButton:hover{
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1706,7 +1706,7 @@ QPushButton:hover{
                      <double>-200.000000000000000</double>
                     </property>
                     <property name="value">
-                     <double>22.000000000000000</double>
+                     <double>-190.000000000000000</double>
                     </property>
                    </widget>
                    <widget class="QLabel" name="temp_lable_bottom_4">
@@ -1763,7 +1763,7 @@ QPushButton:hover{
                      <string>Status</string>
                     </property>
                    </widget>
-                   <widget class="QLabel" name="label_13">
+                   <widget class="QLabel" name="current_step_label">
                     <property name="geometry">
                      <rect>
                       <x>110</x>
@@ -1787,7 +1787,7 @@ QPushButton:hover{
                     <property name="geometry">
                      <rect>
                       <x>60</x>
-                      <y>30</y>
+                      <y>100</y>
                       <width>185</width>
                       <height>41</height>
                      </rect>
@@ -1816,6 +1816,22 @@ QPushButton:hover{
                     </property>
                     <property name="default">
                      <bool>false</bool>
+                    </property>
+                   </widget>
+                   <widget class="QCommandLinkButton" name="prep_button">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>30</y>
+                      <width>185</width>
+                      <height>41</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Preheat</string>
                     </property>
                    </widget>
                   </widget>
@@ -1868,7 +1884,7 @@ QPushButton:hover{
                       <property name="geometry">
                        <rect>
                         <x>160</x>
-                        <y>30</y>
+                        <y>50</y>
                         <width>141</width>
                         <height>61</height>
                        </rect>
@@ -1881,7 +1897,7 @@ QPushButton:hover{
                       <property name="geometry">
                        <rect>
                         <x>10</x>
-                        <y>40</y>
+                        <y>60</y>
                         <width>121</width>
                         <height>51</height>
                        </rect>
@@ -1900,7 +1916,7 @@ QPushButton:hover{
                       <property name="geometry">
                        <rect>
                         <x>160</x>
-                        <y>140</y>
+                        <y>160</y>
                         <width>141</width>
                         <height>61</height>
                        </rect>
@@ -1913,7 +1929,7 @@ QPushButton:hover{
                       <property name="geometry">
                        <rect>
                         <x>10</x>
-                        <y>150</y>
+                        <y>170</y>
                         <width>121</width>
                         <height>51</height>
                        </rect>
@@ -1935,62 +1951,80 @@ QPushButton:hover{
                      <property name="title">
                       <string>Configuration</string>
                      </property>
-                     <widget class="QWidget" name="verticalLayoutWidget">
+                     <widget class="QCheckBox" name="buzzer_button">
                       <property name="geometry">
                        <rect>
                         <x>10</x>
-                        <y>20</y>
-                        <width>291</width>
-                        <height>201</height>
+                        <y>70</y>
+                        <width>289</width>
+                        <height>14</height>
                        </rect>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_8">
-                       <item>
-                        <widget class="QCheckBox" name="buzzer_button">
-                         <property name="text">
-                          <string>Buzzer on</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QCheckBox" name="checkBox_3">
-                         <property name="text">
-                          <string>RadioButton</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QCheckBox" name="checkBox">
-                         <property name="text">
-                          <string>RadioButton</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
+                      <property name="text">
+                       <string>Buzzer on</string>
+                      </property>
+                     </widget>
+                     <widget class="QCheckBox" name="checkBox_3">
+                      <property name="geometry">
+                       <rect>
+                        <x>10</x>
+                        <y>110</y>
+                        <width>289</width>
+                        <height>14</height>
+                       </rect>
+                      </property>
+                      <property name="text">
+                       <string>RadioButton</string>
+                      </property>
+                     </widget>
+                     <widget class="QCheckBox" name="checkBox">
+                      <property name="geometry">
+                       <rect>
+                        <x>10</x>
+                        <y>150</y>
+                        <width>289</width>
+                        <height>14</height>
+                       </rect>
+                      </property>
+                      <property name="text">
+                       <string>RadioButton</string>
+                      </property>
                      </widget>
                     </widget>
                    </item>
                    <item>
                     <widget class="QGroupBox" name="blotting_box_3">
                      <property name="title">
-                      <string>Blotting</string>
+                      <string>Blotting Calibration</string>
                      </property>
-                     <widget class="QDoubleSpinBox" name="blotting_force_control_3">
+                     <widget class="QDoubleSpinBox" name="calib_right">
                       <property name="geometry">
                        <rect>
                         <x>160</x>
-                        <y>20</y>
+                        <y>38</y>
                         <width>121</width>
                         <height>61</height>
                        </rect>
+                      </property>
+                      <property name="decimals">
+                       <number>0</number>
+                      </property>
+                      <property name="minimum">
+                       <double>-100.000000000000000</double>
+                      </property>
+                      <property name="maximum">
+                       <double>100.000000000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>0.000000000000000</double>
                       </property>
                      </widget>
                      <widget class="QLabel" name="label_10">
                       <property name="geometry">
                        <rect>
-                        <x>60</x>
-                        <y>30</y>
-                        <width>61</width>
+                        <x>20</x>
+                        <y>48</y>
+                        <width>121</width>
                         <height>41</height>
                        </rect>
                       </property>
@@ -2000,25 +2034,31 @@ QPushButton:hover{
                        </font>
                       </property>
                       <property name="text">
-                       <string>Force:</string>
+                       <string>Right Arm</string>
                       </property>
                      </widget>
-                     <widget class="QDoubleSpinBox" name="blotting_time_control_3">
+                     <widget class="QDoubleSpinBox" name="calib_left">
                       <property name="geometry">
                        <rect>
                         <x>160</x>
-                        <y>90</y>
+                        <y>108</y>
                         <width>121</width>
                         <height>61</height>
                        </rect>
+                      </property>
+                      <property name="decimals">
+                       <number>0</number>
+                      </property>
+                      <property name="minimum">
+                       <double>-100.000000000000000</double>
                       </property>
                      </widget>
                      <widget class="QLabel" name="label_11">
                       <property name="geometry">
                        <rect>
-                        <x>60</x>
-                        <y>100</y>
-                        <width>61</width>
+                        <x>20</x>
+                        <y>118</y>
+                        <width>111</width>
                         <height>41</height>
                        </rect>
                       </property>
@@ -2028,15 +2068,15 @@ QPushButton:hover{
                        </font>
                       </property>
                       <property name="text">
-                       <string>Time:</string>
+                       <string>Left Arm</string>
                       </property>
                      </widget>
-                     <widget class="QLabel" name="label_12">
+                     <widget class="QLabel" name="calib_sucess_label">
                       <property name="geometry">
                        <rect>
-                        <x>40</x>
-                        <y>170</y>
-                        <width>81</width>
+                        <x>20</x>
+                        <y>188</y>
+                        <width>111</width>
                         <height>41</height>
                        </rect>
                       </property>
@@ -2045,18 +2085,24 @@ QPushButton:hover{
                         <pointsize>15</pointsize>
                        </font>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(0, 170, 0);</string>
+                      </property>
                       <property name="text">
-                       <string>Number:</string>
+                       <string>Sucess</string>
                       </property>
                      </widget>
-                     <widget class="QDoubleSpinBox" name="blotting_number_control_3">
+                     <widget class="QPushButton" name="calib_save_button">
                       <property name="geometry">
                        <rect>
-                        <x>160</x>
-                        <y>160</y>
+                        <x>161</x>
+                        <y>180</y>
                         <width>121</width>
                         <height>61</height>
                        </rect>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
                       </property>
                      </widget>
                     </widget>
