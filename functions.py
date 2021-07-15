@@ -5,23 +5,32 @@ from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import QSize
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
+from pyqtgraph import PlotWidget, plot
+import pyqtgraph as pg
+import sys  # We need sys so that we can pass argv to QApplication
+import os
 
-        self.setMinimumSize(QSize(300, 200))
-        self.setWindowTitle("PyQt messagebox example - pythonprogramminglanguage.com")
+class MainWindow(QtWidgets.QMainWindow):
 
-        pybutton = QPushButton('Show messagebox', self)
-        pybutton.clicked.connect(self.clickMethod)
-        pybutton.resize(200,64)
-        pybutton.move(50, 50)
+    def __init__(self, *args, **kwargs):
+        super(MainWindow, self).__init__(*args, **kwargs)
 
-    def clickMethod(self):
-        QMessageBox.about(self, "Title", "Message")
+        self.graphWidget = pg.PlotWidget()
+        self.setCentralWidget(self.graphWidget)
 
-if __name__ == "__main__":
+        hour = [1,2,3,4,5,6,7,8,9,10]
+        temperature = [30,32,34,32,33,31,29,32,35,45]
+
+        # plot data: x_chanber, y values
+        self.graphWidget.plot(hour, temperature)
+
+
+def main():
     app = QtWidgets.QApplication(sys.argv)
-    mainWin = MainWindow()
-    mainWin.show()
-    sys.exit( app.exec_() )
+    main = MainWindow()
+    main.show()
+    sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()

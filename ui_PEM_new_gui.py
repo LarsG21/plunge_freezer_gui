@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiiljTPn.ui'
+## Form generated from reading UI file 'PEM_new_guiksvkPL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1080, 640)
+        MainWindow.resize(1115, 671)
         MainWindow.setMinimumSize(QSize(1080, 640))
         MainWindow.setStyleSheet(u"background-color: rgb(53, 53, 53);\n"
 "")
@@ -1083,12 +1083,32 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.frame_2 = QFrame(self.frame_top)
+        self.frame_14 = QFrame(self.frame_top)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_14)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.frame_2 = QFrame(self.frame_14)
         self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setMinimumSize(QSize(20, 20))
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_6.addWidget(self.frame_2)
+        self.horizontalLayout_20.addWidget(self.frame_2)
+
+        self.connection_frame = QFrame(self.frame_14)
+        self.connection_frame.setObjectName(u"connection_frame")
+        self.connection_frame.setMinimumSize(QSize(20, 20))
+        self.connection_frame.setMaximumSize(QSize(20, 20))
+        self.connection_frame.setStyleSheet(u"background-color: rgb(255, 0, 0);")
+        self.connection_frame.setFrameShape(QFrame.StyledPanel)
+        self.connection_frame.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_20.addWidget(self.connection_frame)
+
+
+        self.horizontalLayout_6.addWidget(self.frame_14)
 
         self.go_settings_button = QPushButton(self.frame_top)
         self.go_settings_button.setObjectName(u"go_settings_button")
@@ -1106,7 +1126,7 @@ class Ui_MainWindow(object):
         icon1.addFile(u"Icons/2000px-WMF-Agora-Settings_BCBCBC.svg.png", QSize(), QIcon.Normal, QIcon.Off)
         self.go_settings_button.setIcon(icon1)
 
-        self.horizontalLayout_6.addWidget(self.go_settings_button, 0, Qt.AlignRight)
+        self.horizontalLayout_6.addWidget(self.go_settings_button)
 
 
         self.horizontalLayout.addWidget(self.frame_top)
@@ -1242,58 +1262,147 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.temp_box_2 = QGroupBox(self.upper_chamer_box)
         self.temp_box_2.setObjectName(u"temp_box_2")
-        self.temp_control_2 = QDoubleSpinBox(self.temp_box_2)
+        self.temp_box_2.setMinimumSize(QSize(0, 245))
+        self.gridLayout = QGridLayout(self.temp_box_2)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.frame_3 = QFrame(self.temp_box_2)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(0, 91))
+        self.frame_3.setMaximumSize(QSize(16777215, 91))
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.temp_lable_2 = QLabel(self.frame_3)
+        self.temp_lable_2.setObjectName(u"temp_lable_2")
+        self.temp_lable_2.setMinimumSize(QSize(91, 51))
+
+        self.horizontalLayout_5.addWidget(self.temp_lable_2)
+
+        self.temp_control_2 = QDoubleSpinBox(self.frame_3)
         self.temp_control_2.setObjectName(u"temp_control_2")
-        self.temp_control_2.setGeometry(QRect(160, 80, 141, 81))
+        self.temp_control_2.setMinimumSize(QSize(141, 81))
         self.temp_control_2.setStyleSheet(u"")
         self.temp_control_2.setValue(22.000000000000000)
-        self.temp_lable_2 = QLabel(self.temp_box_2)
-        self.temp_lable_2.setObjectName(u"temp_lable_2")
-        self.temp_lable_2.setGeometry(QRect(40, 90, 91, 51))
+
+        self.horizontalLayout_5.addWidget(self.temp_control_2)
+
+
+        self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
+
 
         self.horizontalLayout_4.addWidget(self.temp_box_2)
 
         self.humid_box_2 = QGroupBox(self.upper_chamer_box)
         self.humid_box_2.setObjectName(u"humid_box_2")
-        self.humid_control_2 = QDoubleSpinBox(self.humid_box_2)
+        self.humid_box_2.setMinimumSize(QSize(0, 245))
+        self.gridLayout_2 = QGridLayout(self.humid_box_2)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.frame_4 = QFrame(self.humid_box_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(0, 91))
+        self.frame_4.setMaximumSize(QSize(16777215, 91))
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frame_4)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.humid_lable_2 = QLabel(self.frame_4)
+        self.humid_lable_2.setObjectName(u"humid_lable_2")
+        self.humid_lable_2.setMinimumSize(QSize(91, 51))
+
+        self.horizontalLayout_9.addWidget(self.humid_lable_2)
+
+        self.humid_control_2 = QDoubleSpinBox(self.frame_4)
         self.humid_control_2.setObjectName(u"humid_control_2")
-        self.humid_control_2.setGeometry(QRect(160, 80, 141, 81))
+        self.humid_control_2.setMinimumSize(QSize(141, 81))
         self.humid_control_2.setDecimals(0)
         self.humid_control_2.setValue(80.000000000000000)
-        self.humid_lable_2 = QLabel(self.humid_box_2)
-        self.humid_lable_2.setObjectName(u"humid_lable_2")
-        self.humid_lable_2.setGeometry(QRect(40, 90, 91, 51))
+
+        self.horizontalLayout_9.addWidget(self.humid_control_2)
+
+
+        self.gridLayout_2.addWidget(self.frame_4, 0, 0, 1, 1)
+
 
         self.horizontalLayout_4.addWidget(self.humid_box_2)
 
         self.blotting_box_2 = QGroupBox(self.upper_chamer_box)
         self.blotting_box_2.setObjectName(u"blotting_box_2")
-        self.blotting_force_control_2 = QDoubleSpinBox(self.blotting_box_2)
-        self.blotting_force_control_2.setObjectName(u"blotting_force_control_2")
-        self.blotting_force_control_2.setGeometry(QRect(160, 20, 121, 61))
-        self.label_4 = QLabel(self.blotting_box_2)
+        self.blotting_box_2.setMinimumSize(QSize(0, 245))
+        self.verticalLayout_7 = QVBoxLayout(self.blotting_box_2)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.frame_6 = QFrame(self.blotting_box_2)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setMinimumSize(QSize(311, 76))
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_12 = QHBoxLayout(self.frame_6)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.label_4 = QLabel(self.frame_6)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(60, 30, 61, 41))
+        self.label_4.setMinimumSize(QSize(61, 41))
         font = QFont()
         font.setPointSize(15)
         self.label_4.setFont(font)
-        self.blotting_time_control_2 = QDoubleSpinBox(self.blotting_box_2)
-        self.blotting_time_control_2.setObjectName(u"blotting_time_control_2")
-        self.blotting_time_control_2.setGeometry(QRect(160, 90, 121, 61))
-        self.label_5 = QLabel(self.blotting_box_2)
+
+        self.horizontalLayout_12.addWidget(self.label_4)
+
+        self.blotting_force_control_2 = QDoubleSpinBox(self.frame_6)
+        self.blotting_force_control_2.setObjectName(u"blotting_force_control_2")
+        self.blotting_force_control_2.setMinimumSize(QSize(121, 61))
+
+        self.horizontalLayout_12.addWidget(self.blotting_force_control_2)
+
+
+        self.verticalLayout_7.addWidget(self.frame_6)
+
+        self.frame_7 = QFrame(self.blotting_box_2)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_13 = QHBoxLayout(self.frame_7)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.label_5 = QLabel(self.frame_7)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(60, 100, 61, 41))
+        self.label_5.setMinimumSize(QSize(81, 41))
         font1 = QFont()
         font1.setFamily(u"Arial")
         font1.setPointSize(16)
         self.label_5.setFont(font1)
-        self.label_6 = QLabel(self.blotting_box_2)
+
+        self.horizontalLayout_13.addWidget(self.label_5)
+
+        self.blotting_time_control_2 = QDoubleSpinBox(self.frame_7)
+        self.blotting_time_control_2.setObjectName(u"blotting_time_control_2")
+        self.blotting_time_control_2.setMinimumSize(QSize(121, 61))
+
+        self.horizontalLayout_13.addWidget(self.blotting_time_control_2)
+
+
+        self.verticalLayout_7.addWidget(self.frame_7)
+
+        self.frame_8 = QFrame(self.blotting_box_2)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_14 = QHBoxLayout(self.frame_8)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.label_6 = QLabel(self.frame_8)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(40, 170, 81, 41))
+        self.label_6.setMinimumSize(QSize(81, 41))
         self.label_6.setFont(font)
-        self.blotting_number_control_2 = QDoubleSpinBox(self.blotting_box_2)
+
+        self.horizontalLayout_14.addWidget(self.label_6)
+
+        self.blotting_number_control_2 = QDoubleSpinBox(self.frame_8)
         self.blotting_number_control_2.setObjectName(u"blotting_number_control_2")
-        self.blotting_number_control_2.setGeometry(QRect(160, 160, 121, 61))
+        self.blotting_number_control_2.setMinimumSize(QSize(121, 61))
+
+        self.horizontalLayout_14.addWidget(self.blotting_number_control_2)
+
+
+        self.verticalLayout_7.addWidget(self.frame_8)
+
 
         self.horizontalLayout_4.addWidget(self.blotting_box_2)
 
@@ -1302,7 +1411,8 @@ class Ui_MainWindow(object):
 
         self.spacer = QWidget(self.page_home)
         self.spacer.setObjectName(u"spacer")
-        self.spacer.setMaximumSize(QSize(16777215, 20))
+        self.spacer.setMaximumSize(QSize(16777215, 10))
+        self.spacer.setContextMenuPolicy(Qt.NoContextMenu)
 
         self.verticalLayout_6.addWidget(self.spacer)
 
@@ -1316,14 +1426,34 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.temp_box_bottom_4 = QGroupBox(self.cryo_box)
         self.temp_box_bottom_4.setObjectName(u"temp_box_bottom_4")
-        self.temp_control_botttom_4 = QDoubleSpinBox(self.temp_box_bottom_4)
+        self.temp_box_bottom_4.setMinimumSize(QSize(331, 229))
+        self.gridLayout_3 = QGridLayout(self.temp_box_bottom_4)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.frame_5 = QFrame(self.temp_box_bottom_4)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setMinimumSize(QSize(0, 91))
+        self.frame_5.setMaximumSize(QSize(16777215, 91))
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_10 = QHBoxLayout(self.frame_5)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.temp_lable_bottom_4 = QLabel(self.frame_5)
+        self.temp_lable_bottom_4.setObjectName(u"temp_lable_bottom_4")
+        self.temp_lable_bottom_4.setMinimumSize(QSize(91, 51))
+
+        self.horizontalLayout_10.addWidget(self.temp_lable_bottom_4)
+
+        self.temp_control_botttom_4 = QDoubleSpinBox(self.frame_5)
         self.temp_control_botttom_4.setObjectName(u"temp_control_botttom_4")
-        self.temp_control_botttom_4.setGeometry(QRect(160, 80, 141, 81))
+        self.temp_control_botttom_4.setMinimumSize(QSize(141, 81))
         self.temp_control_botttom_4.setMinimum(-200.000000000000000)
         self.temp_control_botttom_4.setValue(-190.000000000000000)
-        self.temp_lable_bottom_4 = QLabel(self.temp_box_bottom_4)
-        self.temp_lable_bottom_4.setObjectName(u"temp_lable_bottom_4")
-        self.temp_lable_bottom_4.setGeometry(QRect(40, 90, 91, 51))
+
+        self.horizontalLayout_10.addWidget(self.temp_control_botttom_4)
+
+
+        self.gridLayout_3.addWidget(self.frame_5, 0, 0, 1, 1)
+
 
         self.horizontalLayout_11.addWidget(self.temp_box_bottom_4)
 
@@ -1331,37 +1461,66 @@ class Ui_MainWindow(object):
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.progressBar = QProgressBar(self.frame)
-        self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setGeometry(QRect(60, 80, 211, 23))
-        self.progressBar.setValue(42)
+        self.gridLayout_5 = QGridLayout(self.frame)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.label_22 = QLabel(self.frame)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setGeometry(QRect(110, 20, 111, 41))
+        self.label_22.setMinimumSize(QSize(160, 45))
+        self.label_22.setMaximumSize(QSize(0, 0))
         font2 = QFont()
         font2.setPointSize(16)
         self.label_22.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.label_22, 0, 0, 1, 1)
+
+        self.progressBar = QProgressBar(self.frame)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setMinimumSize(QSize(251, 31))
+        self.progressBar.setMaximumSize(QSize(251, 31))
+        self.progressBar.setValue(42)
+
+        self.gridLayout_5.addWidget(self.progressBar, 1, 0, 1, 1)
+
         self.current_step_label = QLabel(self.frame)
         self.current_step_label.setObjectName(u"current_step_label")
-        self.current_step_label.setGeometry(QRect(110, 150, 121, 51))
+        self.current_step_label.setMinimumSize(QSize(241, 51))
+        self.current_step_label.setMaximumSize(QSize(241, 51))
+
+        self.gridLayout_5.addWidget(self.current_step_label, 2, 0, 1, 1)
+
 
         self.horizontalLayout_11.addWidget(self.frame)
 
         self.control_box_4 = QGroupBox(self.cryo_box)
         self.control_box_4.setObjectName(u"control_box_4")
-        self.start_button_4 = QCommandLinkButton(self.control_box_4)
-        self.start_button_4.setObjectName(u"start_button_4")
-        self.start_button_4.setGeometry(QRect(60, 100, 185, 41))
-        self.start_button_4.setStyleSheet(u"")
-        self.shutdown_button_4 = QCommandLinkButton(self.control_box_4)
-        self.shutdown_button_4.setObjectName(u"shutdown_button_4")
-        self.shutdown_button_4.setGeometry(QRect(60, 180, 185, 41))
-        self.shutdown_button_4.setAutoDefault(True)
-        self.shutdown_button_4.setDefault(False)
+        self.control_box_4.setMinimumSize(QSize(331, 229))
+        self.gridLayout_4 = QGridLayout(self.control_box_4)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.prep_button = QCommandLinkButton(self.control_box_4)
         self.prep_button.setObjectName(u"prep_button")
-        self.prep_button.setGeometry(QRect(60, 30, 185, 41))
+        self.prep_button.setMinimumSize(QSize(92, 41))
+        self.prep_button.setMaximumSize(QSize(185, 41))
         self.prep_button.setStyleSheet(u"")
+
+        self.gridLayout_4.addWidget(self.prep_button, 0, 0, 1, 1)
+
+        self.start_button_4 = QCommandLinkButton(self.control_box_4)
+        self.start_button_4.setObjectName(u"start_button_4")
+        self.start_button_4.setMinimumSize(QSize(92, 41))
+        self.start_button_4.setMaximumSize(QSize(185, 41))
+        self.start_button_4.setStyleSheet(u"")
+
+        self.gridLayout_4.addWidget(self.start_button_4, 1, 0, 1, 1)
+
+        self.shutdown_button_4 = QCommandLinkButton(self.control_box_4)
+        self.shutdown_button_4.setObjectName(u"shutdown_button_4")
+        self.shutdown_button_4.setMinimumSize(QSize(92, 41))
+        self.shutdown_button_4.setMaximumSize(QSize(185, 41))
+        self.shutdown_button_4.setAutoDefault(True)
+        self.shutdown_button_4.setDefault(False)
+
+        self.gridLayout_4.addWidget(self.shutdown_button_4, 2, 0, 1, 1)
+
 
         self.horizontalLayout_11.addWidget(self.control_box_4)
 
@@ -1373,6 +1532,39 @@ class Ui_MainWindow(object):
         self.page_plots.setObjectName(u"page_plots")
         self.verticalLayout_12 = QVBoxLayout(self.page_plots)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.plot_box = QGroupBox(self.page_plots)
+        self.plot_box.setObjectName(u"plot_box")
+        self.gridLayout_6 = QGridLayout(self.plot_box)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.plot1_label = QFrame(self.plot_box)
+        self.plot1_label.setObjectName(u"plot1_label")
+        self.plot1_label.setFrameShape(QFrame.StyledPanel)
+        self.plot1_label.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_8.addWidget(self.plot1_label)
+
+        self.plot2_label = QFrame(self.plot_box)
+        self.plot2_label.setObjectName(u"plot2_label")
+        self.plot2_label.setFrameShape(QFrame.StyledPanel)
+        self.plot2_label.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_8.addWidget(self.plot2_label)
+
+        self.plot3_label = QFrame(self.plot_box)
+        self.plot3_label.setObjectName(u"plot3_label")
+        self.plot3_label.setFrameShape(QFrame.StyledPanel)
+        self.plot3_label.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_8.addWidget(self.plot3_label)
+
+
+        self.gridLayout_6.addLayout(self.verticalLayout_8, 0, 0, 1, 1)
+
+
+        self.verticalLayout_12.addWidget(self.plot_box)
+
         self.pages_widget.addWidget(self.page_plots)
         self.page_settings = QWidget()
         self.page_settings.setObjectName(u"page_settings")
@@ -1390,69 +1582,158 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.stepper_box = QGroupBox(self.settings_box)
         self.stepper_box.setObjectName(u"stepper_box")
-        self.plunge_stepper_control = QDoubleSpinBox(self.stepper_box)
-        self.plunge_stepper_control.setObjectName(u"plunge_stepper_control")
-        self.plunge_stepper_control.setGeometry(QRect(160, 50, 141, 61))
-        self.plunge_stepper_control.setValue(22.000000000000000)
-        self.plunging_lable = QLabel(self.stepper_box)
+        self.verticalLayout_11 = QVBoxLayout(self.stepper_box)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.frame_13 = QFrame(self.stepper_box)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setMinimumSize(QSize(311, 76))
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_13)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.plunging_lable = QLabel(self.frame_13)
         self.plunging_lable.setObjectName(u"plunging_lable")
-        self.plunging_lable.setGeometry(QRect(10, 60, 121, 51))
         self.plunging_lable.setFont(font1)
-        self.cryo_stepper_control = QDoubleSpinBox(self.stepper_box)
-        self.cryo_stepper_control.setObjectName(u"cryo_stepper_control")
-        self.cryo_stepper_control.setGeometry(QRect(160, 160, 141, 61))
-        self.cryo_stepper_control.setValue(22.000000000000000)
-        self.cryo_lable = QLabel(self.stepper_box)
+
+        self.horizontalLayout_18.addWidget(self.plunging_lable)
+
+        self.plunging_slider = QSlider(self.frame_13)
+        self.plunging_slider.setObjectName(u"plunging_slider")
+        self.plunging_slider.setOrientation(Qt.Vertical)
+
+        self.horizontalLayout_18.addWidget(self.plunging_slider)
+
+
+        self.verticalLayout_11.addWidget(self.frame_13)
+
+        self.frame_12 = QFrame(self.stepper_box)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setMinimumSize(QSize(311, 76))
+        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_12)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.cryo_lable = QLabel(self.frame_12)
         self.cryo_lable.setObjectName(u"cryo_lable")
-        self.cryo_lable.setGeometry(QRect(10, 170, 121, 51))
         self.cryo_lable.setFont(font1)
+
+        self.horizontalLayout_19.addWidget(self.cryo_lable)
+
+        self.cryo_slider = QSlider(self.frame_12)
+        self.cryo_slider.setObjectName(u"cryo_slider")
+        self.cryo_slider.setOrientation(Qt.Vertical)
+
+        self.horizontalLayout_19.addWidget(self.cryo_slider)
+
+
+        self.verticalLayout_11.addWidget(self.frame_12)
+
 
         self.horizontalLayout_8.addWidget(self.stepper_box)
 
         self.data_box = QGroupBox(self.settings_box)
         self.data_box.setObjectName(u"data_box")
+        self.gridLayout_7 = QGridLayout(self.data_box)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.buzzer_button = QCheckBox(self.data_box)
         self.buzzer_button.setObjectName(u"buzzer_button")
-        self.buzzer_button.setGeometry(QRect(10, 70, 289, 14))
+        self.buzzer_button.setMinimumSize(QSize(289, 31))
+
+        self.gridLayout_7.addWidget(self.buzzer_button, 0, 0, 1, 1)
+
         self.checkBox_3 = QCheckBox(self.data_box)
         self.checkBox_3.setObjectName(u"checkBox_3")
-        self.checkBox_3.setGeometry(QRect(10, 110, 289, 14))
+        self.checkBox_3.setMinimumSize(QSize(0, 31))
+
+        self.gridLayout_7.addWidget(self.checkBox_3, 1, 0, 1, 1)
+
         self.checkBox = QCheckBox(self.data_box)
         self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setGeometry(QRect(10, 150, 289, 14))
+        self.checkBox.setMinimumSize(QSize(0, 31))
+
+        self.gridLayout_7.addWidget(self.checkBox, 2, 0, 1, 1)
+
 
         self.horizontalLayout_8.addWidget(self.data_box)
 
         self.blotting_box_3 = QGroupBox(self.settings_box)
         self.blotting_box_3.setObjectName(u"blotting_box_3")
-        self.calib_right = QDoubleSpinBox(self.blotting_box_3)
+        self.verticalLayout_10 = QVBoxLayout(self.blotting_box_3)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.frame_9 = QFrame(self.blotting_box_3)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setMinimumSize(QSize(311, 76))
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.frame_9)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.label_10 = QLabel(self.frame_9)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(121, 41))
+        self.label_10.setFont(font)
+
+        self.horizontalLayout_15.addWidget(self.label_10)
+
+        self.calib_right = QDoubleSpinBox(self.frame_9)
         self.calib_right.setObjectName(u"calib_right")
-        self.calib_right.setGeometry(QRect(160, 38, 121, 61))
+        self.calib_right.setMinimumSize(QSize(121, 61))
         self.calib_right.setDecimals(0)
         self.calib_right.setMinimum(-100.000000000000000)
         self.calib_right.setMaximum(100.000000000000000)
         self.calib_right.setValue(0.000000000000000)
-        self.label_10 = QLabel(self.blotting_box_3)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setGeometry(QRect(20, 48, 121, 41))
-        self.label_10.setFont(font)
-        self.calib_left = QDoubleSpinBox(self.blotting_box_3)
+
+        self.horizontalLayout_15.addWidget(self.calib_right)
+
+
+        self.verticalLayout_10.addWidget(self.frame_9)
+
+        self.frame_10 = QFrame(self.blotting_box_3)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setMinimumSize(QSize(311, 76))
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frame_10)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.label_11 = QLabel(self.frame_10)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMinimumSize(QSize(111, 41))
+        self.label_11.setFont(font)
+
+        self.horizontalLayout_16.addWidget(self.label_11)
+
+        self.calib_left = QDoubleSpinBox(self.frame_10)
         self.calib_left.setObjectName(u"calib_left")
-        self.calib_left.setGeometry(QRect(160, 108, 121, 61))
+        self.calib_left.setMinimumSize(QSize(121, 61))
         self.calib_left.setDecimals(0)
         self.calib_left.setMinimum(-100.000000000000000)
-        self.label_11 = QLabel(self.blotting_box_3)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setGeometry(QRect(20, 118, 111, 41))
-        self.label_11.setFont(font)
-        self.calib_sucess_label = QLabel(self.blotting_box_3)
+
+        self.horizontalLayout_16.addWidget(self.calib_left)
+
+
+        self.verticalLayout_10.addWidget(self.frame_10)
+
+        self.frame_11 = QFrame(self.blotting_box_3)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setMinimumSize(QSize(311, 76))
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_11)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.calib_sucess_label = QLabel(self.frame_11)
         self.calib_sucess_label.setObjectName(u"calib_sucess_label")
-        self.calib_sucess_label.setGeometry(QRect(20, 188, 111, 41))
         self.calib_sucess_label.setFont(font)
         self.calib_sucess_label.setStyleSheet(u"color: rgb(0, 170, 0);")
-        self.calib_save_button = QPushButton(self.blotting_box_3)
+
+        self.horizontalLayout_17.addWidget(self.calib_sucess_label)
+
+        self.calib_save_button = QPushButton(self.frame_11)
         self.calib_save_button.setObjectName(u"calib_save_button")
-        self.calib_save_button.setGeometry(QRect(161, 180, 121, 61))
+
+        self.horizontalLayout_17.addWidget(self.calib_save_button)
+
+
+        self.verticalLayout_10.addWidget(self.frame_11)
+
 
         self.horizontalLayout_8.addWidget(self.blotting_box_3)
 
@@ -1495,7 +1776,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.button_page_home.setDefault(False)
-        self.pages_widget.setCurrentIndex(0)
+        self.pages_widget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1532,22 +1813,24 @@ class Ui_MainWindow(object):
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"Status", None))
         self.current_step_label.setText(QCoreApplication.translate("MainWindow", u"Current Step", None))
         self.control_box_4.setTitle(QCoreApplication.translate("MainWindow", u"Controls", None))
+        self.prep_button.setText(QCoreApplication.translate("MainWindow", u"Preheat", None))
         self.start_button_4.setText(QCoreApplication.translate("MainWindow", u"Start", None))
         self.shutdown_button_4.setText(QCoreApplication.translate("MainWindow", u"Shutdown", None))
-        self.prep_button.setText(QCoreApplication.translate("MainWindow", u"Preheat", None))
+        self.plot_box.setTitle(QCoreApplication.translate("MainWindow", u"Plots", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
         self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))
         self.cryo_lable.setText(QCoreApplication.translate("MainWindow", u"Cryo Platfom", None))
         self.data_box.setTitle(QCoreApplication.translate("MainWindow", u"Configuration", None))
         self.buzzer_button.setText(QCoreApplication.translate("MainWindow", u"Buzzer on", None))
-        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
+        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"RGB on", None))
         self.checkBox.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
         self.blotting_box_3.setTitle(QCoreApplication.translate("MainWindow", u"Blotting Calibration", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Right Arm", None))
+        self.calib_right.setSuffix("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Left Arm", None))
         self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"Sucess", None))
-        self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"Calibrate", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Data", None))
     # retranslateUi
 
