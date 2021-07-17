@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1115</width>
-    <height>690</height>
+    <height>671</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1166,25 +1166,49 @@ border: px solid
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <widget class="QFrame" name="connection_frame">
-             <property name="geometry">
-              <rect>
-               <x>920</x>
-               <y>10</y>
-               <width>21</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 0, 0);</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_20">
+             <item>
+              <widget class="QFrame" name="frame_2">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="connection_frame">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 0, 0);</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -1496,7 +1520,7 @@ QPushButton:hover{
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1698,6 +1722,12 @@ QPushButton:hover{
                            <height>61</height>
                           </size>
                          </property>
+                         <property name="decimals">
+                          <number>0</number>
+                         </property>
+                         <property name="value">
+                          <double>1.000000000000000</double>
+                         </property>
                         </widget>
                        </item>
                       </layout>
@@ -1739,6 +1769,12 @@ QPushButton:hover{
                            <height>61</height>
                           </size>
                          </property>
+                         <property name="decimals">
+                          <number>0</number>
+                         </property>
+                         <property name="value">
+                          <double>1.000000000000000</double>
+                         </property>
                         </widget>
                        </item>
                       </layout>
@@ -1778,6 +1814,12 @@ QPushButton:hover{
                            <width>121</width>
                            <height>61</height>
                           </size>
+                         </property>
+                         <property name="decimals">
+                          <number>0</number>
+                         </property>
+                         <property name="value">
+                          <double>1.000000000000000</double>
                          </property>
                         </widget>
                        </item>
@@ -2168,9 +2210,9 @@ QPushButton:hover{
                           </widget>
                          </item>
                          <item>
-                          <widget class="QDoubleSpinBox" name="plunge_stepper_control">
-                           <property name="value">
-                            <double>22.000000000000000</double>
+                          <widget class="QSlider" name="plunging_slider">
+                           <property name="orientation">
+                            <enum>Qt::Vertical</enum>
                            </property>
                           </widget>
                          </item>
@@ -2206,9 +2248,9 @@ QPushButton:hover{
                           </widget>
                          </item>
                          <item>
-                          <widget class="QDoubleSpinBox" name="cryo_stepper_control">
-                           <property name="value">
-                            <double>22.000000000000000</double>
+                          <widget class="QSlider" name="cryo_slider">
+                           <property name="orientation">
+                            <enum>Qt::Vertical</enum>
                            </property>
                           </widget>
                          </item>
@@ -2246,7 +2288,7 @@ QPushButton:hover{
                          </size>
                         </property>
                         <property name="text">
-                         <string>RadioButton</string>
+                         <string>RGB on</string>
                         </property>
                        </widget>
                       </item>
@@ -2418,7 +2460,7 @@ QPushButton:hover{
                          <item>
                           <widget class="QPushButton" name="calib_save_button">
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>Calibrate</string>
                            </property>
                           </widget>
                          </item>

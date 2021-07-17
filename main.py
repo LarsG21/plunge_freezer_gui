@@ -359,6 +359,8 @@ class UIFunctions(QMainWindow):
         :return:
         """
         global shutdown
+        self.ui.cryo_slider.setValue(0)
+        self.ui.plunging_slider.setValue(0)
         shutdown = True
 
     def toggleMenu(self, maxWidth, enable):

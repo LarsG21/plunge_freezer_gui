@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiksvkPL.ui'
+## Form generated from reading UI file 'PEM_new_guiFyvUkp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1350,6 +1350,8 @@ class Ui_MainWindow(object):
         self.blotting_force_control_2 = QDoubleSpinBox(self.frame_6)
         self.blotting_force_control_2.setObjectName(u"blotting_force_control_2")
         self.blotting_force_control_2.setMinimumSize(QSize(121, 61))
+        self.blotting_force_control_2.setDecimals(0)
+        self.blotting_force_control_2.setValue(1.000000000000000)
 
         self.horizontalLayout_12.addWidget(self.blotting_force_control_2)
 
@@ -1375,6 +1377,8 @@ class Ui_MainWindow(object):
         self.blotting_time_control_2 = QDoubleSpinBox(self.frame_7)
         self.blotting_time_control_2.setObjectName(u"blotting_time_control_2")
         self.blotting_time_control_2.setMinimumSize(QSize(121, 61))
+        self.blotting_time_control_2.setDecimals(0)
+        self.blotting_time_control_2.setValue(1.000000000000000)
 
         self.horizontalLayout_13.addWidget(self.blotting_time_control_2)
 
@@ -1397,6 +1401,8 @@ class Ui_MainWindow(object):
         self.blotting_number_control_2 = QDoubleSpinBox(self.frame_8)
         self.blotting_number_control_2.setObjectName(u"blotting_number_control_2")
         self.blotting_number_control_2.setMinimumSize(QSize(121, 61))
+        self.blotting_number_control_2.setDecimals(0)
+        self.blotting_number_control_2.setValue(1.000000000000000)
 
         self.horizontalLayout_14.addWidget(self.blotting_number_control_2)
 
@@ -1776,7 +1782,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.button_page_home.setDefault(False)
-        self.pages_widget.setCurrentIndex(2)
+        self.pages_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
