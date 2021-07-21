@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guijTBtYH.ui'
+## Form generated from reading UI file 'PEM_new_guiqXlHZL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1569,10 +1569,10 @@ class Ui_MainWindow(object):
         self.frame_17.setFrameShadow(QFrame.Raised)
         self.gridLayout_12 = QGridLayout(self.frame_17)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.temp_chaber_plot = QLabel(self.frame_17)
-        self.temp_chaber_plot.setObjectName(u"temp_chaber_plot")
+        self.temp_chamber_plot = QLabel(self.frame_17)
+        self.temp_chamber_plot.setObjectName(u"temp_chamber_plot")
 
-        self.gridLayout_12.addWidget(self.temp_chaber_plot, 0, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.temp_chamber_plot, 0, 0, 1, 1)
 
 
         self.horizontalLayout_22.addWidget(self.frame_17)
@@ -1935,11 +1935,11 @@ class Ui_MainWindow(object):
         self.shutdown_button_4.setText(QCoreApplication.translate("MainWindow", u"Shutdown", None))
         self.plot_box.setTitle(QCoreApplication.translate("MainWindow", u"Plots", None))
         self.plot1_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Chamber \u00b0C", None))
-        self.temp_chaber_plot.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.temp_chamber_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
         self.plot2_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Humidity %", None))
-        self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
         self.plot3_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Cryo Bath \u00b0C", None))
-        self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
         self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))

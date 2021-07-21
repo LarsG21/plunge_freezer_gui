@@ -491,7 +491,7 @@ if __name__ == "__main__":
     plot_timer.timeout.connect(lambda: window.ui.graphWidget1.plot(x, y_humid))
     plot_timer.timeout.connect(lambda: window.ui.graphWidget2.clear())
     plot_timer.timeout.connect(lambda: window.ui.graphWidget2.plot(x, y_cryo))
-    plot_timer.start(500)
+    plot_timer.start(400)
     label_update_timer.start(100)  # every 100 milliseconds
     #############################################################################
 
