@@ -1,3 +1,4 @@
+import csv
 import math
 import sys
 import platform
@@ -49,7 +50,7 @@ STATUS = 'IDLE'
 STATUS_INTERNAL = 'IDLE'
 ERROR_MSG = ''
 
-serial_pid = 42021  #14155    #42021          # id of the serial device
+serial_pid = 14155  #14155    #42021          # id of the serial device
 
 # Temp Humid
 set_blot_force, set_blot_time, set_blot_nr = 0, 0, 0
@@ -290,6 +291,9 @@ class MainWindow(QMainWindow):
         self.ui.start_button_4.clicked.connect(lambda: UIFunctions.update_blot_variables(self))
         self.ui.shutdown_button_4.clicked.connect(lambda: UIFunctions.shutdown(self))
         self.ui.calib_save_button.clicked.connect(lambda: UIFunctions.calibrate_blot_arms(self))
+        self.ui.data_export_button.clicked.connect(lambda: UIFunctions.write_csv(self))
+        self.ui.clear_plots_button.clicked.connect(lambda: UIFunctions.clear_all_plots(self))
+
         self.ui.cryo_slider.sliderReleased.connect(lambda: UIFunctions.update_manual_positioning(self))
         self.ui.plunging_slider.sliderReleased.connect(lambda: UIFunctions.update_manual_positioning(self))
         self.ui.home_button.clicked.connect(lambda: UIFunctions.home_steppers(self))
@@ -307,25 +311,44 @@ class MainWindow(QMainWindow):
     def onMouseMoved(self, evt):
         if self.ui.graphWidget.plotItem.vb.mapSceneToView(evt):
             point = self.ui.graphWidget.plotItem.vb.mapSceneToView(evt)
-            print(int(np.round(point.x())))
-            self.ui.temp_chamber_plot.setText(
-                "<p style='color:white'>Temp: {0}</p>".format(y_chamber[int(np.round(point.x()))]))
+            if int(np.round(point.x())) < len(y_chamber) and len(y_chamber) > 0:
+                self.ui.temp_chamber_plot.setText(
+                "<p style='color:white'> {0}°C</p>".format(y_chamber[int(np.round(point.x()))]))
 
     def onMouseMoved1(self, evt):
         if self.ui.graphWidget1.plotItem.vb.mapSceneToView(evt):
             point = self.ui.graphWidget1.plotItem.vb.mapSceneToView(evt)
-            print(int(np.round(point.x())))
-            self.ui.humid_plot.setText(
-                "<p style='color:white'>Temp: {0}</p>".format(y_chamber[int(np.round(point.x()))]))
+            if int(np.round(point.x())) < len(y_humid) and len(y_humid) > 0:
+                self.ui.humid_plot.setText(
+                "<p style='color:white'> {0}%</p>".format(y_humid[int(np.round(point.x()))]))
 
     def onMouseMoved2(self, evt):
         if self.ui.graphWidget2.plotItem.vb.mapSceneToView(evt):
             point = self.ui.graphWidget2.plotItem.vb.mapSceneToView(evt)
-            print(int(np.round(point.x())))
-            self.ui.temp_cryo_plot.setText(
-                "<p style='color:white'>Temp: {0}</p>".format(y_chamber[int(np.round(point.x()))]))
+            if int(np.round(point.x())) < len(y_cryo) and len(y_cryo) > 0:
+                self.ui.temp_cryo_plot.setText(
+                "<p style='color:white'> {0}°C</p>".format(y_cryo[int(np.round(point.x()))]))
+
 
 class UIFunctions(QMainWindow):
+
+    def clear_all_plots(self):
+        global y_humid, y_cryo, y_chamber, x
+        y_humid,y_cryo,y_chamber, x = [0.0], [0.0], [0.0], [0]
+
+    def write_csv(self):
+        """
+        Writes data from y_lists to csv file in folder
+        :return:
+        """
+        print("Test")
+        rows = zip(x,y_chamber,y_cryo,y_humid)
+        print("Test")
+        with open("C:\\Users\\larsg\\Desktop\\Data\\1.csv", "w") as f:
+            print("Test2")
+            writer = csv.writer(f)
+            for row in rows:
+                writer.writerow(row)
 
 
 

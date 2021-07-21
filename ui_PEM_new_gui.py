@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiqXlHZL.ui'
+## Form generated from reading UI file 'PEM_new_guiVixBBY.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1080, 700)
+        MainWindow.resize(1092, 776)
         MainWindow.setMinimumSize(QSize(1080, 700))
         MainWindow.setStyleSheet(u"background-color: rgb(53, 53, 53);\n"
 "")
@@ -1645,6 +1645,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addLayout(self.verticalLayout_8, 0, 0, 1, 1)
 
+        self.frame_20 = QFrame(self.plot_box)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setMaximumSize(QSize(16777215, 40))
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.clear_plots_button = QPushButton(self.frame_20)
+        self.clear_plots_button.setObjectName(u"clear_plots_button")
+        self.clear_plots_button.setGeometry(QRect(12, 12, 118, 20))
+        self.clear_plots_button.setMaximumSize(QSize(16777215, 35))
+        font4 = QFont()
+        font4.setPointSize(7)
+        self.clear_plots_button.setFont(font4)
+
+        self.gridLayout_6.addWidget(self.frame_20, 1, 0, 1, 1)
+
 
         self.verticalLayout_12.addWidget(self.plot_box)
 
@@ -1867,13 +1882,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.label_9 = QLabel(self.page_dataExport)
         self.label_9.setObjectName(u"label_9")
-        font4 = QFont()
-        font4.setPointSize(40)
-        self.label_9.setFont(font4)
+        font5 = QFont()
+        font5.setPointSize(40)
+        self.label_9.setFont(font5)
         self.label_9.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.label_9.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_7.addWidget(self.label_9)
+
+        self.data_export_button = QPushButton(self.page_dataExport)
+        self.data_export_button.setObjectName(u"data_export_button")
+
+        self.horizontalLayout_7.addWidget(self.data_export_button)
 
         self.pages_widget.addWidget(self.page_dataExport)
 
@@ -1940,6 +1960,7 @@ class Ui_MainWindow(object):
         self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
         self.plot3_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Cryo Bath \u00b0C", None))
         self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
+        self.clear_plots_button.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
         self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))
@@ -1957,5 +1978,6 @@ class Ui_MainWindow(object):
         self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"Sucess", None))
         self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"Calibrate", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Data", None))
+        self.data_export_button.setText(QCoreApplication.translate("MainWindow", u"Export Data", None))
     # retranslateUi
 
