@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guimbYahc.ui'
+## Form generated from reading UI file 'PEM_new_guijTBtYH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1551,8 +1551,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.plot1_label_box = QGroupBox(self.plot_box)
         self.plot1_label_box.setObjectName(u"plot1_label_box")
-        self.verticalLayout_13 = QVBoxLayout(self.plot1_label_box)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.horizontalLayout_22 = QHBoxLayout(self.plot1_label_box)
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
         self.plot1_label = QFrame(self.plot1_label_box)
         self.plot1_label.setObjectName(u"plot1_label")
         self.plot1_label.setFrameShape(QFrame.StyledPanel)
@@ -1560,15 +1560,30 @@ class Ui_MainWindow(object):
         self.gridLayout_8 = QGridLayout(self.plot1_label)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
 
-        self.verticalLayout_13.addWidget(self.plot1_label)
+        self.horizontalLayout_22.addWidget(self.plot1_label)
+
+        self.frame_17 = QFrame(self.plot1_label_box)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setMaximumSize(QSize(100, 16777215))
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.frame_17)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.temp_chaber_plot = QLabel(self.frame_17)
+        self.temp_chaber_plot.setObjectName(u"temp_chaber_plot")
+
+        self.gridLayout_12.addWidget(self.temp_chaber_plot, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_22.addWidget(self.frame_17)
 
 
         self.verticalLayout_8.addWidget(self.plot1_label_box)
 
         self.plot2_label_box = QGroupBox(self.plot_box)
         self.plot2_label_box.setObjectName(u"plot2_label_box")
-        self.verticalLayout_14 = QVBoxLayout(self.plot2_label_box)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.horizontalLayout_23 = QHBoxLayout(self.plot2_label_box)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
         self.plot2_label = QFrame(self.plot2_label_box)
         self.plot2_label.setObjectName(u"plot2_label")
         self.plot2_label.setFrameShape(QFrame.StyledPanel)
@@ -1576,15 +1591,30 @@ class Ui_MainWindow(object):
         self.gridLayout_9 = QGridLayout(self.plot2_label)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
 
-        self.verticalLayout_14.addWidget(self.plot2_label)
+        self.horizontalLayout_23.addWidget(self.plot2_label)
+
+        self.frame_18 = QFrame(self.plot2_label_box)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setMaximumSize(QSize(100, 16777215))
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.gridLayout_13 = QGridLayout(self.frame_18)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.humid_plot = QLabel(self.frame_18)
+        self.humid_plot.setObjectName(u"humid_plot")
+
+        self.gridLayout_13.addWidget(self.humid_plot, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_23.addWidget(self.frame_18)
 
 
         self.verticalLayout_8.addWidget(self.plot2_label_box)
 
         self.plot3_label_box = QGroupBox(self.plot_box)
         self.plot3_label_box.setObjectName(u"plot3_label_box")
-        self.verticalLayout_15 = QVBoxLayout(self.plot3_label_box)
-        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.horizontalLayout_24 = QHBoxLayout(self.plot3_label_box)
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
         self.plot3_label = QFrame(self.plot3_label_box)
         self.plot3_label.setObjectName(u"plot3_label")
         self.plot3_label.setFrameShape(QFrame.StyledPanel)
@@ -1592,7 +1622,22 @@ class Ui_MainWindow(object):
         self.gridLayout_10 = QGridLayout(self.plot3_label)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
 
-        self.verticalLayout_15.addWidget(self.plot3_label)
+        self.horizontalLayout_24.addWidget(self.plot3_label)
+
+        self.frame_19 = QFrame(self.plot3_label_box)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setMaximumSize(QSize(100, 16777215))
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.gridLayout_14 = QGridLayout(self.frame_19)
+        self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.temp_cryo_plot = QLabel(self.frame_19)
+        self.temp_cryo_plot.setObjectName(u"temp_cryo_plot")
+
+        self.gridLayout_14.addWidget(self.temp_cryo_plot, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_24.addWidget(self.frame_19)
 
 
         self.verticalLayout_8.addWidget(self.plot3_label_box)
@@ -1848,7 +1893,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.button_page_home.setDefault(False)
-        self.pages_widget.setCurrentIndex(0)
+        self.pages_widget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1890,8 +1935,11 @@ class Ui_MainWindow(object):
         self.shutdown_button_4.setText(QCoreApplication.translate("MainWindow", u"Shutdown", None))
         self.plot_box.setTitle(QCoreApplication.translate("MainWindow", u"Plots", None))
         self.plot1_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Chamber \u00b0C", None))
+        self.temp_chaber_plot.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.plot2_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Humidity %", None))
+        self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.plot3_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Cryo Bath \u00b0C", None))
+        self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
         self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))
