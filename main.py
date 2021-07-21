@@ -249,14 +249,17 @@ class MainWindow(QMainWindow):
         #axis.attachToPlotItem(self.ui.graphWidget.getPlotItem())
         self.ui.graphWidget.setMinimumSize(QSize(1000, 200))
         self.ui.graphWidget.setMaximumSize(QSize(2000, 500))
+        self.ui.graphWidget.scene().sigMouseMoved.connect(self.onMouseMoved)
 
         self.ui.graphWidget1 = pg.PlotWidget(self.ui.plot2_label)
         self.ui.graphWidget1.setMinimumSize(QSize(1000, 200))
         self.ui.graphWidget.setMaximumSize(QSize(2000, 500))
+        self.ui.graphWidget1.scene().sigMouseMoved.connect(self.onMouseMoved1)
 
         self.ui.graphWidget2 = pg.PlotWidget(self.ui.plot3_label)
         self.ui.graphWidget2.setMinimumSize(QSize(1000, 200))
         self.ui.graphWidget.setMaximumSize(QSize(2000, 500))
+        self.ui.graphWidget2.scene().sigMouseMoved.connect(self.onMouseMoved2)
 
         ######################################################################################
 
@@ -301,7 +304,30 @@ class MainWindow(QMainWindow):
     def warning(self, message="Default"):
         QMessageBox.about(self, "Error", message)
 
+    def onMouseMoved(self, evt):
+        if self.ui.graphWidget.plotItem.vb.mapSceneToView(evt):
+            point = self.ui.graphWidget.plotItem.vb.mapSceneToView(evt)
+            print(int(np.round(point.x())))
+            self.ui.temp_chamber_plot.setText(
+                "<p style='color:white'>Temp: {0}</p>".format(y_chamber[int(np.round(point.x()))]))
+
+    def onMouseMoved1(self, evt):
+        if self.ui.graphWidget1.plotItem.vb.mapSceneToView(evt):
+            point = self.ui.graphWidget1.plotItem.vb.mapSceneToView(evt)
+            print(int(np.round(point.x())))
+            self.ui.humid_plot.setText(
+                "<p style='color:white'>Temp: {0}</p>".format(y_chamber[int(np.round(point.x()))]))
+
+    def onMouseMoved2(self, evt):
+        if self.ui.graphWidget2.plotItem.vb.mapSceneToView(evt):
+            point = self.ui.graphWidget2.plotItem.vb.mapSceneToView(evt)
+            print(int(np.round(point.x())))
+            self.ui.temp_cryo_plot.setText(
+                "<p style='color:white'>Temp: {0}</p>".format(y_chamber[int(np.round(point.x()))]))
+
 class UIFunctions(QMainWindow):
+
+
 
     def update_labels(self, temp_chamber, temp_cryo, humid, status):
         """
@@ -452,7 +478,7 @@ if __name__ == "__main__":
     serial_communicator = SerialCommunicator()
     pool.start(serial_communicator)
     counter = Counter()
-    #pool.start(counter)
+    pool.start(counter)
     ###############################################################
     label_update_timer = QtCore.QTimer()
     plot_timer = QtCore.QTimer()
