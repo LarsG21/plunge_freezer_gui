@@ -1520,7 +1520,7 @@ QPushButton:hover{
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1573,6 +1573,11 @@ QPushButton:hover{
                            <width>91</width>
                            <height>51</height>
                           </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>9</pointsize>
+                          </font>
                          </property>
                          <property name="text">
                           <string>TextLabel</string>
@@ -1641,6 +1646,11 @@ QPushButton:hover{
                            <width>91</width>
                            <height>51</height>
                           </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>9</pointsize>
+                          </font>
                          </property>
                          <property name="text">
                           <string>TextLabel</string>
@@ -1907,6 +1917,11 @@ QPushButton:hover{
                            <height>51</height>
                           </size>
                          </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>9</pointsize>
+                          </font>
+                         </property>
                          <property name="text">
                           <string>TextLabel</string>
                          </property>
@@ -1924,7 +1939,7 @@ QPushButton:hover{
                           <double>-200.000000000000000</double>
                          </property>
                          <property name="value">
-                          <double>-190.000000000000000</double>
+                          <double>-180.000000000000000</double>
                          </property>
                         </widget>
                        </item>

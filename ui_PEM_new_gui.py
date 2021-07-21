@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guieCbVlR.ui'
+## Form generated from reading UI file 'PEM_new_guimbYahc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1276,6 +1276,9 @@ class Ui_MainWindow(object):
         self.temp_lable_2 = QLabel(self.frame_3)
         self.temp_lable_2.setObjectName(u"temp_lable_2")
         self.temp_lable_2.setMinimumSize(QSize(91, 51))
+        font = QFont()
+        font.setPointSize(9)
+        self.temp_lable_2.setFont(font)
 
         self.horizontalLayout_5.addWidget(self.temp_lable_2)
 
@@ -1309,6 +1312,7 @@ class Ui_MainWindow(object):
         self.humid_lable_2 = QLabel(self.frame_4)
         self.humid_lable_2.setObjectName(u"humid_lable_2")
         self.humid_lable_2.setMinimumSize(QSize(91, 51))
+        self.humid_lable_2.setFont(font)
 
         self.horizontalLayout_9.addWidget(self.humid_lable_2)
 
@@ -1341,9 +1345,9 @@ class Ui_MainWindow(object):
         self.label_4 = QLabel(self.frame_6)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMinimumSize(QSize(61, 41))
-        font = QFont()
-        font.setPointSize(15)
-        self.label_4.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(15)
+        self.label_4.setFont(font1)
 
         self.horizontalLayout_12.addWidget(self.label_4)
 
@@ -1367,10 +1371,10 @@ class Ui_MainWindow(object):
         self.label_5 = QLabel(self.frame_7)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setMinimumSize(QSize(81, 41))
-        font1 = QFont()
-        font1.setFamily(u"Arial")
-        font1.setPointSize(16)
-        self.label_5.setFont(font1)
+        font2 = QFont()
+        font2.setFamily(u"Arial")
+        font2.setPointSize(16)
+        self.label_5.setFont(font2)
 
         self.horizontalLayout_13.addWidget(self.label_5)
 
@@ -1394,7 +1398,7 @@ class Ui_MainWindow(object):
         self.label_6 = QLabel(self.frame_8)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setMinimumSize(QSize(81, 41))
-        self.label_6.setFont(font)
+        self.label_6.setFont(font1)
 
         self.horizontalLayout_14.addWidget(self.label_6)
 
@@ -1446,6 +1450,7 @@ class Ui_MainWindow(object):
         self.temp_lable_bottom_4 = QLabel(self.frame_5)
         self.temp_lable_bottom_4.setObjectName(u"temp_lable_bottom_4")
         self.temp_lable_bottom_4.setMinimumSize(QSize(91, 51))
+        self.temp_lable_bottom_4.setFont(font)
 
         self.horizontalLayout_10.addWidget(self.temp_lable_bottom_4)
 
@@ -1453,7 +1458,7 @@ class Ui_MainWindow(object):
         self.temp_control_botttom_4.setObjectName(u"temp_control_botttom_4")
         self.temp_control_botttom_4.setMinimumSize(QSize(141, 81))
         self.temp_control_botttom_4.setMinimum(-200.000000000000000)
-        self.temp_control_botttom_4.setValue(-190.000000000000000)
+        self.temp_control_botttom_4.setValue(-180.000000000000000)
 
         self.horizontalLayout_10.addWidget(self.temp_control_botttom_4)
 
@@ -1473,9 +1478,9 @@ class Ui_MainWindow(object):
         self.label_22.setObjectName(u"label_22")
         self.label_22.setMinimumSize(QSize(160, 45))
         self.label_22.setMaximumSize(QSize(0, 0))
-        font2 = QFont()
-        font2.setPointSize(16)
-        self.label_22.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(16)
+        self.label_22.setFont(font3)
 
         self.gridLayout_5.addWidget(self.label_22, 0, 0, 1, 1)
 
@@ -1626,7 +1631,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.plunging_lable = QLabel(self.frame_13)
         self.plunging_lable.setObjectName(u"plunging_lable")
-        self.plunging_lable.setFont(font1)
+        self.plunging_lable.setFont(font2)
 
         self.horizontalLayout_18.addWidget(self.plunging_lable)
 
@@ -1648,7 +1653,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
         self.cryo_lable = QLabel(self.frame_12)
         self.cryo_lable.setObjectName(u"cryo_lable")
-        self.cryo_lable.setFont(font1)
+        self.cryo_lable.setFont(font2)
 
         self.horizontalLayout_19.addWidget(self.cryo_lable)
 
@@ -1677,7 +1682,7 @@ class Ui_MainWindow(object):
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.homing_sucess_label = QLabel(self.frame_16)
         self.homing_sucess_label.setObjectName(u"homing_sucess_label")
-        self.homing_sucess_label.setFont(font)
+        self.homing_sucess_label.setFont(font1)
         self.homing_sucess_label.setStyleSheet(u"color: rgb(0, 170, 0);")
 
         self.gridLayout_11.addWidget(self.homing_sucess_label, 0, 0, 1, 1)
@@ -1737,7 +1742,7 @@ class Ui_MainWindow(object):
         self.label_10 = QLabel(self.frame_9)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setMinimumSize(QSize(121, 41))
-        self.label_10.setFont(font)
+        self.label_10.setFont(font1)
 
         self.horizontalLayout_15.addWidget(self.label_10)
 
@@ -1764,7 +1769,7 @@ class Ui_MainWindow(object):
         self.label_11 = QLabel(self.frame_10)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setMinimumSize(QSize(111, 41))
-        self.label_11.setFont(font)
+        self.label_11.setFont(font1)
 
         self.horizontalLayout_16.addWidget(self.label_11)
 
@@ -1788,7 +1793,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
         self.calib_sucess_label = QLabel(self.frame_11)
         self.calib_sucess_label.setObjectName(u"calib_sucess_label")
-        self.calib_sucess_label.setFont(font)
+        self.calib_sucess_label.setFont(font1)
         self.calib_sucess_label.setStyleSheet(u"color: rgb(0, 170, 0);")
 
         self.horizontalLayout_17.addWidget(self.calib_sucess_label)
@@ -1817,9 +1822,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.label_9 = QLabel(self.page_dataExport)
         self.label_9.setObjectName(u"label_9")
-        font3 = QFont()
-        font3.setPointSize(40)
-        self.label_9.setFont(font3)
+        font4 = QFont()
+        font4.setPointSize(40)
+        self.label_9.setFont(font4)
         self.label_9.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.label_9.setAlignment(Qt.AlignCenter)
 

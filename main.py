@@ -49,7 +49,7 @@ STATUS = 'IDLE'
 STATUS_INTERNAL = 'IDLE'
 ERROR_MSG = ''
 
-serial_pid = 14155    #42021          # id of the serial device
+serial_pid = 42021  #14155    #42021          # id of the serial device
 
 # Temp Humid
 set_blot_force, set_blot_time, set_blot_nr = 0, 0, 0
@@ -58,7 +58,7 @@ temp_chamber, temp_cryo, humid = 0, 0, 0
 
 
 # Manual Movement and Settings
-calib_successful, homing_successful = False, False
+calib_successful, homing_successful = False, True
 calib_offset_right, calib_offset_left = 0,0
 cryo_pos, plunging_pos = 0,0
 
@@ -123,7 +123,7 @@ def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_forc
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'MANUAL_MOVEMENT':
         STATUS = "MOVE"
-        s = 'M/' + str(plunging_pos * 1250) + "/" + str(cryo_pos * 1250) + "/"
+        s = 'M/' + str(plunging_pos * 1240) + "/" + str(cryo_pos * 1240) + "/"
         s_binary = bytes(s, 'utf-8')
         print("MOVING", plunging_pos, cryo_pos)
         STATUS_INTERNAL = 'IDLE'
@@ -170,7 +170,7 @@ class SerialCommunicator(QRunnable):
                         msg = self.ser.readline()
 
                         msg = msg.decode("utf-8")
-                        msg = msg[0:len(msg) - 2]
+                        msg = msg[0:len(msg) - 1]
                         print(msg)
                         msg_split = msg.split("/")
                         identifier = msg_split[0]
@@ -212,6 +212,7 @@ class SerialCommunicator(QRunnable):
                     waiting_for_serial = True   #Set Flag and try to regain serial
                     STATUS = "Connection Lost!"
             else:   #Handle if Serial communication is lost
+                homing_successful = False
                 while waiting_for_serial:
                     STATUS = "WAITING FOR SERIAL"
                     ports = serial.tools.list_ports.comports(include_links=False)
@@ -325,7 +326,7 @@ class UIFunctions(QMainWindow):
         else:
             self.ui.calib_sucess_label.setText("Failure")
             self.ui.calib_sucess_label.setStyleSheet(u"color: rgb(170, 0, 0);")
-        if calib_successful:
+        if homing_successful:
             self.ui.homing_sucess_label.setText("Successful")
             self.ui.homing_sucess_label.setStyleSheet(u"color: rgb(0, 170, 0);")
         else:
@@ -392,7 +393,10 @@ class UIFunctions(QMainWindow):
         STATUS_INTERNAL = 'CALIBRATE_BLOT'
 
     def home_steppers(self):
-        global STATUS_INTERNAL
+        global STATUS_INTERNAL, homing_successful
+        homing_successful = False
+        self.ui.cryo_slider.setValue(0)
+        self.ui.plunging_slider.setValue(0)
         STATUS_INTERNAL = 'HOME_STEPPERS'
 
     def shutdown(self):
@@ -448,7 +452,7 @@ if __name__ == "__main__":
     serial_communicator = SerialCommunicator()
     pool.start(serial_communicator)
     counter = Counter()
-    pool.start(counter)
+    #pool.start(counter)
     ###############################################################
     label_update_timer = QtCore.QTimer()
     plot_timer = QtCore.QTimer()
@@ -458,9 +462,9 @@ if __name__ == "__main__":
     plot_timer.timeout.connect(lambda: window.ui.graphWidget.clear())
     plot_timer.timeout.connect(lambda: window.ui.graphWidget.plot(x, y_chamber))
     plot_timer.timeout.connect(lambda: window.ui.graphWidget1.clear())
-    plot_timer.timeout.connect(lambda: window.ui.graphWidget1.plot(x, y_cryo))
+    plot_timer.timeout.connect(lambda: window.ui.graphWidget1.plot(x, y_humid))
     plot_timer.timeout.connect(lambda: window.ui.graphWidget2.clear())
-    plot_timer.timeout.connect(lambda: window.ui.graphWidget2.plot(x, y_humid))
+    plot_timer.timeout.connect(lambda: window.ui.graphWidget2.plot(x, y_cryo))
     plot_timer.start(500)
     label_update_timer.start(100)  # every 100 milliseconds
     #############################################################################
