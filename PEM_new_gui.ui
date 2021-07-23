@@ -1520,7 +1520,7 @@ QPushButton:hover{
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1735,8 +1735,11 @@ QPushButton:hover{
                          <property name="decimals">
                           <number>0</number>
                          </property>
+                         <property name="maximum">
+                          <double>10.000000000000000</double>
+                         </property>
                          <property name="value">
-                          <double>1.000000000000000</double>
+                          <double>4.000000000000000</double>
                          </property>
                         </widget>
                        </item>
@@ -1781,6 +1784,9 @@ QPushButton:hover{
                          </property>
                          <property name="decimals">
                           <number>0</number>
+                         </property>
+                         <property name="maximum">
+                          <double>10.000000000000000</double>
                          </property>
                          <property name="value">
                           <double>1.000000000000000</double>
@@ -1827,6 +1833,9 @@ QPushButton:hover{
                          </property>
                          <property name="decimals">
                           <number>0</number>
+                         </property>
+                         <property name="maximum">
+                          <double>10.000000000000000</double>
                          </property>
                          <property name="value">
                           <double>1.000000000000000</double>
@@ -2273,7 +2282,7 @@ QPushButton:hover{
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <widget class="QPushButton" name="pushButton">
+                   <widget class="QPushButton" name="clear_plots_button">
                     <property name="geometry">
                      <rect>
                       <x>12</x>
@@ -2364,6 +2373,18 @@ QPushButton:hover{
                              <pointsize>16</pointsize>
                             </font>
                            </property>
+                           <property name="statusTip">
+                            <string/>
+                           </property>
+                           <property name="whatsThis">
+                            <string/>
+                           </property>
+                           <property name="accessibleName">
+                            <string/>
+                           </property>
+                           <property name="accessibleDescription">
+                            <string/>
+                           </property>
                            <property name="text">
                             <string>Plunging Arm</string>
                            </property>
@@ -2371,6 +2392,12 @@ QPushButton:hover{
                          </item>
                          <item>
                           <widget class="QSlider" name="plunging_slider">
+                           <property name="minimum">
+                            <number>-99</number>
+                           </property>
+                           <property name="maximum">
+                            <number>0</number>
+                           </property>
                            <property name="orientation">
                             <enum>Qt::Vertical</enum>
                            </property>
@@ -2458,7 +2485,7 @@ QPushButton:hover{
                                <string notr="true">color: rgb(0, 170, 0);</string>
                               </property>
                               <property name="text">
-                               <string>Sucess</string>
+                               <string>-</string>
                               </property>
                              </widget>
                             </item>
@@ -2683,7 +2710,7 @@ QPushButton:hover{
                             <string notr="true">color: rgb(0, 170, 0);</string>
                            </property>
                            <property name="text">
-                            <string>Sucess</string>
+                            <string>-</string>
                            </property>
                           </widget>
                          </item>

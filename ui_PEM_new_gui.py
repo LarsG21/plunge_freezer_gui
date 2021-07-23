@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiVixBBY.ui'
+## Form generated from reading UI file 'PEM_new_guivNsDcY.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1355,7 +1355,8 @@ class Ui_MainWindow(object):
         self.blotting_force_control_2.setObjectName(u"blotting_force_control_2")
         self.blotting_force_control_2.setMinimumSize(QSize(121, 61))
         self.blotting_force_control_2.setDecimals(0)
-        self.blotting_force_control_2.setValue(1.000000000000000)
+        self.blotting_force_control_2.setMaximum(10.000000000000000)
+        self.blotting_force_control_2.setValue(4.000000000000000)
 
         self.horizontalLayout_12.addWidget(self.blotting_force_control_2)
 
@@ -1382,6 +1383,7 @@ class Ui_MainWindow(object):
         self.blotting_time_control_2.setObjectName(u"blotting_time_control_2")
         self.blotting_time_control_2.setMinimumSize(QSize(121, 61))
         self.blotting_time_control_2.setDecimals(0)
+        self.blotting_time_control_2.setMaximum(10.000000000000000)
         self.blotting_time_control_2.setValue(1.000000000000000)
 
         self.horizontalLayout_13.addWidget(self.blotting_time_control_2)
@@ -1406,6 +1408,7 @@ class Ui_MainWindow(object):
         self.blotting_number_control_2.setObjectName(u"blotting_number_control_2")
         self.blotting_number_control_2.setMinimumSize(QSize(121, 61))
         self.blotting_number_control_2.setDecimals(0)
+        self.blotting_number_control_2.setMaximum(10.000000000000000)
         self.blotting_number_control_2.setValue(1.000000000000000)
 
         self.horizontalLayout_14.addWidget(self.blotting_number_control_2)
@@ -1697,6 +1700,8 @@ class Ui_MainWindow(object):
 
         self.plunging_slider = QSlider(self.frame_13)
         self.plunging_slider.setObjectName(u"plunging_slider")
+        self.plunging_slider.setMinimum(-99)
+        self.plunging_slider.setMaximum(0)
         self.plunging_slider.setOrientation(Qt.Vertical)
 
         self.horizontalLayout_18.addWidget(self.plunging_slider)
@@ -1913,7 +1918,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.button_page_home.setDefault(False)
-        self.pages_widget.setCurrentIndex(1)
+        self.pages_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1963,9 +1968,21 @@ class Ui_MainWindow(object):
         self.clear_plots_button.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
+#if QT_CONFIG(statustip)
+        self.plunging_lable.setStatusTip("")
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(whatsthis)
+        self.plunging_lable.setWhatsThis("")
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(accessibility)
+        self.plunging_lable.setAccessibleName("")
+#endif // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
+        self.plunging_lable.setAccessibleDescription("")
+#endif // QT_CONFIG(accessibility)
         self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))
         self.cryo_lable.setText(QCoreApplication.translate("MainWindow", u"Cryo Platfom", None))
-        self.homing_sucess_label.setText(QCoreApplication.translate("MainWindow", u"Sucess", None))
+        self.homing_sucess_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.home_button.setText(QCoreApplication.translate("MainWindow", u"Home Steppers", None))
         self.data_box.setTitle(QCoreApplication.translate("MainWindow", u"Configuration", None))
         self.buzzer_button.setText(QCoreApplication.translate("MainWindow", u"Buzzer on", None))
@@ -1975,7 +1992,7 @@ class Ui_MainWindow(object):
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Right Arm", None))
         self.calib_right.setSuffix("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Left Arm", None))
-        self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"Sucess", None))
+        self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"Calibrate", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Data", None))
         self.data_export_button.setText(QCoreApplication.translate("MainWindow", u"Export Data", None))
