@@ -42,6 +42,9 @@ from ui_functions import *
 # General
 waiting_for_serial = True
 shutdown = False
+reset = True
+preheating = False
+pid_running = False
 STATUS = 'IDLE'
 STATUS_INTERNAL = 'IDLE'
 ERROR_MSG = ''
@@ -49,9 +52,10 @@ ERROR_MSG = ''
 serial_pid = 42021  # 14155    #42021          # id of the serial device
 
 # Temp Humid
-set_blot_force, set_blot_time, set_blot_nr = 0, 0, 0
+set_blot_force, set_blot_time, set_blot_nr = 0.0, 0.0, 0.0
 set_temp_chamber, set_temp_cryo, set_humid = 0, 0, 0
 temp_chamber, temp_cryo, humid = 0, 0, 0
+power, water_temp = 0,0
 
 # Manual Movement and Settings
 calib_successful, homing_successful = False, True
@@ -82,30 +86,35 @@ class Counter(QRunnable):
 
     def run(self):
         global x, y_chamber, time_plot
+        a = 1
         while True:
             x.append(x[-1] + 1)
+            a += 0.1
             # now = time.time()
             # x = np.linspace(self.start_time, now, self.elapsed_time)
             # self.elapsed_time += 1
-            y_chamber.append(int(3 * math.sin(x[-1])))
-            y_cryo.append(int(3 * math.cos(x[-1])))
-            y_humid.append(int(3 * math.sin(x[-1])))
+            y_chamber.append(int(3*a * math.sin(x[-1])))
+            y_cryo.append(int(3*a**2 * math.cos(x[-1])))
+            y_humid.append(int(3*a * math.sin(x[-1])))
             time_plot.append(datetime.datetime.now().strftime("%H:%M:%S"))
             time.sleep(0.1)
 
 
 def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_force, set_blot_nr, set_blot_time,
                   set_humid, set_temp_chamber, set_temp_cryo):
-    global STATUS, STATUS_INTERNAL
+    global STATUS, STATUS_INTERNAL, reset
     if STATUS_INTERNAL == 'PREHEATING':
         STATUS = "PREHEATING"
-        s = 'P/' + str(set_temp_chamber) + "/" + str(abs(set_temp_cryo)) + "/" + str(set_humid) + "/"
+        s = 'P/' + str(set_temp_chamber) + "/" + str(set_temp_cryo) + "/" + str(set_humid) + "/"
         s_binary = bytes(s, 'utf-8')
         print("Preheat", set_temp_chamber, set_temp_cryo, set_humid)
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'UPDATE_BLOT':
         STATUS = "BLOTTING"
-        s = 'S/' + str(set_blot_force) + "/" + str(set_blot_time) + "/" + str(set_blot_nr) + "/"
+        if not reset:
+            s = 'S/' + str(set_blot_force) + "/" + str(set_blot_time) + "/" + str(set_blot_nr) + "/"
+        else:
+            s = 'R/'
         s_binary = bytes(s, 'utf-8')
         print("BLOT", set_blot_force, set_blot_time, set_blot_nr)
         STATUS_INTERNAL = 'IDLE'
@@ -123,7 +132,7 @@ def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_forc
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'MANUAL_MOVEMENT':
         STATUS = "MOVE"
-        s = 'M/' + str(plunging_pos * 1415) + "/" + str(cryo_pos * 1240) + "/"
+        s = 'M/' + str(plunging_pos * 1415) + "/" + str(cryo_pos * 1200) + "/"
         s_binary = bytes(s, 'utf-8')
         print("MOVING", plunging_pos, cryo_pos)
         STATUS_INTERNAL = 'IDLE'
@@ -133,6 +142,28 @@ def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_forc
         s = 'H/'
         s_binary = bytes(s, 'utf-8')
         print("HOMING")
+    elif STATUS_INTERNAL == 'COOLDOWN':
+        STATUS_INTERNAL = 'IDLE'
+        STATUS = 'COOLDOWN'
+        s = 'O/'
+        s_binary = bytes(s, 'utf-8')
+        print("COOLDOWN")
+    elif STATUS_INTERNAL == 'START_PID':
+        STATUS_INTERNAL = 'IDLE'
+        s = 'Y/'
+        s_binary = bytes(s, 'utf-8')
+        print("START_PID")
+    elif STATUS_INTERNAL == 'STOP_PID':
+        STATUS_INTERNAL = 'IDLE'
+        s = 'Z/'
+        s_binary = bytes(s, 'utf-8')
+        print("STOP_PID")
+    elif STATUS_INTERNAL == 'EMERGENCY':
+        STATUS_INTERNAL = 'IDLE'
+        STATUS = 'EMERGENCY'
+        s = 'E/'
+        s_binary = bytes(s, 'utf-8')
+        print("EMERGENCY")
     return s_binary
 
 
@@ -161,7 +192,7 @@ class SerialCommunicator(QRunnable):
             set_temp_cryo, set_temp_chamber, set_humid, set_blot_force, \
             set_blot_time, set_blot_nr, shutdown, calib_offset_left, calib_offset_right, \
             calib_successful, waiting_for_serial, x, y_chamber, y_cryo, y_humid, \
-            STATUS_INTERNAL, homing_successful, pid_ps, pid_ds, time_plot
+            STATUS_INTERNAL, homing_successful, pid_ps, pid_ds, time_plot, power, water_temp
 
         while True:
             if waiting_for_serial == False:
@@ -179,6 +210,7 @@ class SerialCommunicator(QRunnable):
                             if msg_split[1] == 'S':
                                 homing_successful = True
                                 STATUS_INTERNAL = 'IDLE'
+                                STATUS = "IDLE"
                             else:
                                 homing_successful = False
                                 STATUS = 'ERROR HOMING'
@@ -186,9 +218,9 @@ class SerialCommunicator(QRunnable):
                             temp_chamber, temp_cryo, humid = float(msg_split[1]), float(msg_split[2]), float(
                                 msg_split[3])
                             if len(msg_split) == 6:  # For plotting PID values
-                                pid_p, pid_d = float(msg_split[4]), float(msg_split[5])
-                                pid_ps.append(pid_p)
-                                pid_ds.append(pid_d)
+                                power, water_temp = float(msg_split[4]), float(msg_split[5])
+                                pid_ps.append(power)
+                                pid_ds.append(water_temp)
                             x.append(x[-1] + 1)
                             if y_chamber[-1] == 0.0:
                                 y_chamber[-1] = temp_chamber
@@ -201,8 +233,8 @@ class SerialCommunicator(QRunnable):
                             y_humid.append(humid)
                             time_plot.append(datetime.datetime.now().strftime("%H:%M:%S"))
                         elif identifier == 'F' and STATUS != "ERROR":
-                            STATUS = "ERROR"
                             ERROR_MSG = msg_split[1]
+                            STATUS = "ERROR: " + ERROR_MSG
                             # window.warning()
                         elif identifier == 'I':
                             STATUS = msg_split[1]
@@ -226,7 +258,7 @@ class SerialCommunicator(QRunnable):
                     waiting_for_serial = True  # Set Flag and try to regain serial
                     STATUS = "Connection Lost!"
             else:  # Handle if Serial communication is lost
-                homing_successful = False
+
                 while waiting_for_serial:
                     STATUS = "WAITING FOR SERIAL"
                     ports = serial.tools.list_ports.comports(include_links=False)
@@ -246,7 +278,7 @@ class SerialCommunicator(QRunnable):
                         self.ser.port = use_port
                         self.ser.open()
                         waiting_for_serial = False
-                        STATUS = "IDEL"
+                        STATUS = "IDLE"
                         print("now connected with", self.ser.port)
 
 
@@ -261,21 +293,26 @@ class MainWindow(QMainWindow):
         self.ui.graphWidget = pg.PlotWidget(self.ui.plot1_label)
         # axis = DateAxisItem(orientation='bottom')
         # axis.attachToPlotItem(self.ui.graphWidget.getPlotItem())
-        width_plots = 2000
-        height_plots = 420
+        width_plots = 1800
+        height_plots = 270
         self.ui.graphWidget.setMinimumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget.setMaximumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget.scene().sigMouseMoved.connect(self.onMouseMoved)
+        self.ui.graphWidget.showGrid(x=True, y=True, alpha=0.6)
 
         self.ui.graphWidget1 = pg.PlotWidget(self.ui.plot2_label)
         self.ui.graphWidget1.setMinimumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget.setMaximumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget1.scene().sigMouseMoved.connect(self.onMouseMoved1)
+        self.ui.graphWidget1.showGrid(x=True, y=True, alpha=0.6)
+
 
         self.ui.graphWidget2 = pg.PlotWidget(self.ui.plot3_label)
         self.ui.graphWidget2.setMinimumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget.setMaximumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget2.scene().sigMouseMoved.connect(self.onMouseMoved2)
+        self.ui.graphWidget2.showGrid(x=True, y=True, alpha=0.6)
+
 
         ######################################################################################
 
@@ -308,6 +345,8 @@ class MainWindow(QMainWindow):
         self.ui.calib_save_button.clicked.connect(lambda: UIFunctions.calibrate_blot_arms(self))
         self.ui.data_export_button.clicked.connect(lambda: UIFunctions.write_csv(self))
         self.ui.clear_plots_button.clicked.connect(lambda: UIFunctions.clear_all_plots(self))
+        self.ui.pid_control.clicked.connect(lambda: UIFunctions.pid_start(self))
+        self.ui.emergency_button.clicked.connect(lambda: UIFunctions.emergency_stop(self))
 
         self.ui.cryo_slider.sliderReleased.connect(lambda: UIFunctions.update_manual_positioning(self))
         self.ui.plunging_slider.sliderReleased.connect(lambda: UIFunctions.update_manual_positioning(self))
@@ -326,26 +365,30 @@ class MainWindow(QMainWindow):
     def onMouseMoved(self, evt):
         if self.ui.graphWidget.plotItem.vb.mapSceneToView(evt):
             point = self.ui.graphWidget.plotItem.vb.mapSceneToView(evt)
-            if int(np.round(point.x())) < len(y_chamber) and len(y_chamber) > 0:
+            if int(np.round(point.x())) < len(y_chamber) and len(y_chamber) > 0 and point.x() >0:
                 self.ui.temp_chamber_plot.setText(
                     "<p style='color:white'> {0}°C</p>".format(y_chamber[int(np.round(point.x()))]))
 
     def onMouseMoved1(self, evt):
         if self.ui.graphWidget1.plotItem.vb.mapSceneToView(evt):
             point = self.ui.graphWidget1.plotItem.vb.mapSceneToView(evt)
-            if int(np.round(point.x())) < len(y_humid) and len(y_humid) > 0:
+            if int(np.round(point.x())) < len(y_humid) and len(y_humid) > 0 and point.x() >0:
                 self.ui.humid_plot.setText(
                     "<p style='color:white'> {0}%</p>".format(y_humid[int(np.round(point.x()))]))
 
     def onMouseMoved2(self, evt):
         if self.ui.graphWidget2.plotItem.vb.mapSceneToView(evt):
             point = self.ui.graphWidget2.plotItem.vb.mapSceneToView(evt)
-            if int(np.round(point.x())) < len(y_cryo) and len(y_cryo) > 0:
+            if int(np.round(point.x())) < len(y_cryo) and len(y_cryo) > 0 and point.x() >0:
                 self.ui.temp_cryo_plot.setText(
                     "<p style='color:white'> {0}°C</p>".format(y_cryo[int(np.round(point.x()))]))
 
 
 class UIFunctions(QMainWindow):
+
+    def emergency_stop(self):
+        global  STATUS_INTERNAL
+        STATUS_INTERNAL = 'EMERGENCY'
 
     def clear_all_plots(self):
         global y_humid, y_cryo, y_chamber, x, pid_ps, pid_ps, time_plot
@@ -378,12 +421,28 @@ class UIFunctions(QMainWindow):
         :param status:
         :return:
         """
-        global calib_successful, homing_successful, waiting_for_serial
+        global calib_successful, homing_successful, waiting_for_serial, power, water_temp, shutdown, reset, preheating, pid_running
         self.ui.temp_lable_2.setText(str(temp_chamber) + "°C")
         self.ui.temp_lable_bottom_4.setText(str(temp_cryo) + "°C")
+        self.ui.humid_lable_2.setText(str(humid) + "%")
+        self.ui.power_label.setText(str(power) + "W")
+        self.ui.water_temp_label.setText(str(water_temp)+ "°C")
         self.ui.current_step_label.setText(str(status))
+        self.ui.temp_chamber_plot_current.setText(str(temp_chamber) + "°C")
+        self.ui.humid_plot_current.setText(self.ui.humid_lable_2.setText(str(humid) + "%"))
+        self.ui.temp_cryo_plot_current.setText(str(temp_cryo) + "°C")
         if waiting_for_serial:
             self.ui.connection_frame.setStyleSheet(u"background-color: rgb(170, 0, 0);")
+            self.ui.start_button_4.setChecked(False)
+            self.ui.pid_control.setChecked(False)
+            self.ui.prep_button.setChecked(False)
+            self.ui.prep_button.setText('Preheat')
+            self.ui.start_button_4.setText('Start')
+            homing_successful, calib_successful = False, False
+            shutdown = False
+            reset = True
+            preheating = False
+            pid_running = False
         else:
             self.ui.connection_frame.setStyleSheet(u"background-color: rgb(0, 170, 0);")
         if calib_successful:
@@ -406,22 +465,25 @@ class UIFunctions(QMainWindow):
             self.ui.progressBar.setValue(50)
         elif status == "SHUTDOWN":
             self.ui.progressBar.setValue(0)
-        if humid >= 0 and humid <= 100:
-            self.ui.humid_lable_2.setText(str(humid) + "%")
-        else:
-            self.ui.humid_lable_2.setText("Error in sensor reading")
 
     def update_preheat_variables(self):
         """
         Updates the global variables and sets the update Flag
         :return:
         """
-        global set_temp_chamber, set_temp_cryo, set_humid
+        global set_temp_chamber, set_temp_cryo, set_humid, preheating
         global STATUS_INTERNAL
+        if preheating:
+            STATUS_INTERNAL = 'COOLDOWN'
+            preheating = False
+            self.ui.prep_button.setText('Preheat')
+        else:
+            STATUS_INTERNAL = 'PREHEATING'
+            preheating = True
+            self.ui.prep_button.setText('Cooldown')
         set_temp_chamber = self.ui.temp_control_2.value()
         set_temp_cryo = self.ui.temp_control_botttom_4.value()
         set_humid = self.ui.humid_control_2.value()
-        STATUS_INTERNAL = 'PREHEATING'
 
     def update_manual_positioning(self):
         """
@@ -434,13 +496,32 @@ class UIFunctions(QMainWindow):
         plunging_pos = self.ui.plunging_slider.value()
         STATUS_INTERNAL = 'MANUAL_MOVEMENT'
 
+    def pid_start(self):
+        global pid_running, STATUS_INTERNAL
+        if pid_running:
+            STATUS_INTERNAL = 'STOP_PID'
+            pid_running = False
+            self.ui.pid_control.setStyleSheet(u"background-color: rgb(170, 0, 0);")
+        else:
+            STATUS_INTERNAL = 'START_PID'
+            self.ui.pid_control.setStyleSheet(u"background-color: rgb(0, 170, 0);")
+
+            pid_running = True
+
+
     def update_blot_variables(self):
         """
         Updates the global variables and sets the update Flag
         :return:
         """
-        global set_blot_nr, set_blot_time, set_blot_force
+        global set_blot_nr, set_blot_time, set_blot_force, reset
         global STATUS_INTERNAL
+        if reset:
+            reset = False
+            self.ui.start_button_4.setText('Reset')
+        else:
+            reset = True
+            self.ui.start_button_4.setText('Start')
         set_blot_force = self.ui.blotting_force_control_2.value()
         set_blot_time = self.ui.blotting_time_control_2.value()
         set_blot_nr = self.ui.blotting_number_control_2.value()
