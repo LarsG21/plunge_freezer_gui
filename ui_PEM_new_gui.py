@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiMjLELl.ui'
+## Form generated from reading UI file 'PEM_new_guirNtvyH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1048,7 +1048,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_toggle = QFrame(self.top_bar)
         self.frame_toggle.setObjectName(u"frame_toggle")
-        self.frame_toggle.setMaximumSize(QSize(70, 40))
+        self.frame_toggle.setMaximumSize(QSize(90, 40))
         self.frame_toggle.setStyleSheet(u"background-color: rgb(85, 170, 255);")
         self.frame_toggle.setFrameShape(QFrame.StyledPanel)
         self.frame_toggle.setFrameShadow(QFrame.Raised)
@@ -1415,7 +1415,7 @@ class Ui_MainWindow(object):
         self.blotting_force_control_2.setMinimumSize(QSize(121, 61))
         self.blotting_force_control_2.setDecimals(0)
         self.blotting_force_control_2.setMaximum(10.000000000000000)
-        self.blotting_force_control_2.setValue(4.000000000000000)
+        self.blotting_force_control_2.setValue(5.000000000000000)
 
         self.horizontalLayout_12.addWidget(self.blotting_force_control_2)
 
@@ -1443,7 +1443,7 @@ class Ui_MainWindow(object):
         self.blotting_time_control_2.setMinimumSize(QSize(121, 61))
         self.blotting_time_control_2.setDecimals(0)
         self.blotting_time_control_2.setMaximum(10.000000000000000)
-        self.blotting_time_control_2.setValue(1.000000000000000)
+        self.blotting_time_control_2.setValue(3.000000000000000)
 
         self.horizontalLayout_13.addWidget(self.blotting_time_control_2)
 
@@ -1588,29 +1588,61 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_5 = QGridLayout(self.frame)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.current_step_label = QLabel(self.frame)
+        self.frame_27 = QFrame(self.frame)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setMaximumSize(QSize(16777215, 80))
+        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_30 = QHBoxLayout(self.frame_27)
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.current_step_label = QLabel(self.frame_27)
         self.current_step_label.setObjectName(u"current_step_label")
-        self.current_step_label.setMinimumSize(QSize(380, 51))
-        self.current_step_label.setMaximumSize(QSize(600, 51))
+        self.current_step_label.setMinimumSize(QSize(150, 51))
+        self.current_step_label.setMaximumSize(QSize(500, 51))
         self.current_step_label.setFont(font1)
 
-        self.gridLayout_5.addWidget(self.current_step_label, 3, 0, 1, 1)
+        self.horizontalLayout_30.addWidget(self.current_step_label)
 
-        self.progressBar = QProgressBar(self.frame)
-        self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setMinimumSize(QSize(251, 31))
-        self.progressBar.setMaximumSize(QSize(251, 31))
-        self.progressBar.setValue(42)
 
-        self.gridLayout_5.addWidget(self.progressBar, 2, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.frame_27, 3, 0, 1, 1)
 
-        self.label_22 = QLabel(self.frame)
+        self.frame_28 = QFrame(self.frame)
+        self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setMinimumSize(QSize(0, 45))
+        self.frame_28.setMaximumSize(QSize(16777215, 60))
+        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_31 = QHBoxLayout(self.frame_28)
+        self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
+        self.label_22 = QLabel(self.frame_28)
         self.label_22.setObjectName(u"label_22")
         self.label_22.setMinimumSize(QSize(160, 45))
-        self.label_22.setMaximumSize(QSize(0, 0))
+        self.label_22.setMaximumSize(QSize(160, 45))
         self.label_22.setFont(font2)
 
-        self.gridLayout_5.addWidget(self.label_22, 1, 0, 1, 1)
+        self.horizontalLayout_31.addWidget(self.label_22)
+
+
+        self.gridLayout_5.addWidget(self.frame_28, 1, 0, 1, 1)
+
+        self.frame_26 = QFrame(self.frame)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setMinimumSize(QSize(0, 80))
+        self.frame_26.setMaximumSize(QSize(16777215, 100))
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_28 = QHBoxLayout(self.frame_26)
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.progressBar = QProgressBar(self.frame_26)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setMinimumSize(QSize(300, 31))
+        self.progressBar.setMaximumSize(QSize(300, 31))
+        self.progressBar.setValue(42)
+
+        self.horizontalLayout_28.addWidget(self.progressBar)
+
+
+        self.gridLayout_5.addWidget(self.frame_26, 2, 0, 1, 1)
 
 
         self.horizontalLayout_11.addWidget(self.frame)
@@ -1680,6 +1712,9 @@ class Ui_MainWindow(object):
         self.frame_17 = QFrame(self.plot1_label_box)
         self.frame_17.setObjectName(u"frame_17")
         self.frame_17.setMaximumSize(QSize(100, 16777215))
+        font5 = QFont()
+        font5.setPointSize(12)
+        self.frame_17.setFont(font5)
         self.frame_17.setFrameShape(QFrame.StyledPanel)
         self.frame_17.setFrameShadow(QFrame.Raised)
         self.gridLayout_12 = QGridLayout(self.frame_17)
@@ -1688,12 +1723,26 @@ class Ui_MainWindow(object):
         self.temp_chamber_plot = QLabel(self.frame_17)
         self.temp_chamber_plot.setObjectName(u"temp_chamber_plot")
 
-        self.gridLayout_12.addWidget(self.temp_chamber_plot, 1, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.temp_chamber_plot, 3, 0, 1, 1)
 
         self.temp_chamber_plot_current = QLabel(self.frame_17)
         self.temp_chamber_plot_current.setObjectName(u"temp_chamber_plot_current")
 
-        self.gridLayout_12.addWidget(self.temp_chamber_plot_current, 0, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.temp_chamber_plot_current, 1, 0, 1, 1)
+
+        self.label_14 = QLabel(self.frame_17)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setMaximumSize(QSize(16777215, 20))
+        self.label_14.setFont(font)
+
+        self.gridLayout_12.addWidget(self.label_14, 0, 0, 1, 1)
+
+        self.label_17 = QLabel(self.frame_17)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setMaximumSize(QSize(16777215, 20))
+        self.label_17.setFont(font)
+
+        self.gridLayout_12.addWidget(self.label_17, 2, 0, 1, 1)
 
 
         self.horizontalLayout_22.addWidget(self.frame_17)
@@ -1717,20 +1766,35 @@ class Ui_MainWindow(object):
         self.frame_18 = QFrame(self.plot2_label_box)
         self.frame_18.setObjectName(u"frame_18")
         self.frame_18.setMaximumSize(QSize(100, 16777215))
+        self.frame_18.setFont(font5)
         self.frame_18.setFrameShape(QFrame.StyledPanel)
         self.frame_18.setFrameShadow(QFrame.Raised)
         self.gridLayout_13 = QGridLayout(self.frame_18)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.gridLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.humid_plot = QLabel(self.frame_18)
-        self.humid_plot.setObjectName(u"humid_plot")
+        self.label_15 = QLabel(self.frame_18)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setMaximumSize(QSize(16777215, 20))
+        self.label_15.setFont(font)
 
-        self.gridLayout_13.addWidget(self.humid_plot, 1, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.label_15, 0, 0, 1, 1)
 
         self.humid_plot_current = QLabel(self.frame_18)
         self.humid_plot_current.setObjectName(u"humid_plot_current")
 
-        self.gridLayout_13.addWidget(self.humid_plot_current, 0, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.humid_plot_current, 1, 0, 1, 1)
+
+        self.humid_plot = QLabel(self.frame_18)
+        self.humid_plot.setObjectName(u"humid_plot")
+
+        self.gridLayout_13.addWidget(self.humid_plot, 3, 0, 1, 1)
+
+        self.label_18 = QLabel(self.frame_18)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setMaximumSize(QSize(16777215, 20))
+        self.label_18.setFont(font)
+
+        self.gridLayout_13.addWidget(self.label_18, 2, 0, 1, 1)
 
 
         self.horizontalLayout_23.addWidget(self.frame_18)
@@ -1754,6 +1818,7 @@ class Ui_MainWindow(object):
         self.frame_19 = QFrame(self.plot3_label_box)
         self.frame_19.setObjectName(u"frame_19")
         self.frame_19.setMaximumSize(QSize(100, 16777215))
+        self.frame_19.setFont(font5)
         self.frame_19.setFrameShape(QFrame.StyledPanel)
         self.frame_19.setFrameShadow(QFrame.Raised)
         self.gridLayout_14 = QGridLayout(self.frame_19)
@@ -1762,12 +1827,26 @@ class Ui_MainWindow(object):
         self.temp_cryo_plot = QLabel(self.frame_19)
         self.temp_cryo_plot.setObjectName(u"temp_cryo_plot")
 
-        self.gridLayout_14.addWidget(self.temp_cryo_plot, 1, 0, 1, 1)
+        self.gridLayout_14.addWidget(self.temp_cryo_plot, 3, 0, 1, 1)
+
+        self.label_16 = QLabel(self.frame_19)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setMaximumSize(QSize(16777215, 20))
+        self.label_16.setFont(font)
+
+        self.gridLayout_14.addWidget(self.label_16, 0, 0, 1, 1)
 
         self.temp_cryo_plot_current = QLabel(self.frame_19)
         self.temp_cryo_plot_current.setObjectName(u"temp_cryo_plot_current")
 
-        self.gridLayout_14.addWidget(self.temp_cryo_plot_current, 0, 0, 1, 1)
+        self.gridLayout_14.addWidget(self.temp_cryo_plot_current, 1, 0, 1, 1)
+
+        self.label_19 = QLabel(self.frame_19)
+        self.label_19.setObjectName(u"label_19")
+        self.label_19.setMaximumSize(QSize(16777215, 20))
+        self.label_19.setFont(font)
+
+        self.gridLayout_14.addWidget(self.label_19, 2, 0, 1, 1)
 
 
         self.horizontalLayout_24.addWidget(self.frame_19)
@@ -1787,9 +1866,9 @@ class Ui_MainWindow(object):
         self.clear_plots_button.setObjectName(u"clear_plots_button")
         self.clear_plots_button.setGeometry(QRect(12, 12, 118, 20))
         self.clear_plots_button.setMaximumSize(QSize(16777215, 35))
-        font5 = QFont()
-        font5.setPointSize(7)
-        self.clear_plots_button.setFont(font5)
+        font6 = QFont()
+        font6.setPointSize(7)
+        self.clear_plots_button.setFont(font6)
 
         self.gridLayout_6.addWidget(self.frame_20, 1, 0, 1, 1)
 
@@ -1957,10 +2036,10 @@ class Ui_MainWindow(object):
 
         self.calib_right = QDoubleSpinBox(self.frame_9)
         self.calib_right.setObjectName(u"calib_right")
-        self.calib_right.setMinimumSize(QSize(121, 61))
+        self.calib_right.setMinimumSize(QSize(121, 80))
         self.calib_right.setDecimals(0)
         self.calib_right.setMinimum(-100.000000000000000)
-        self.calib_right.setMaximum(100.000000000000000)
+        self.calib_right.setMaximum(200.000000000000000)
         self.calib_right.setValue(0.000000000000000)
 
         self.horizontalLayout_15.addWidget(self.calib_right)
@@ -1984,9 +2063,10 @@ class Ui_MainWindow(object):
 
         self.calib_left = QDoubleSpinBox(self.frame_10)
         self.calib_left.setObjectName(u"calib_left")
-        self.calib_left.setMinimumSize(QSize(121, 61))
+        self.calib_left.setMinimumSize(QSize(121, 80))
         self.calib_left.setDecimals(0)
         self.calib_left.setMinimum(-100.000000000000000)
+        self.calib_left.setMaximum(200.000000000000000)
 
         self.horizontalLayout_16.addWidget(self.calib_left)
 
@@ -2009,11 +2089,17 @@ class Ui_MainWindow(object):
 
         self.calib_save_button = QPushButton(self.frame_11)
         self.calib_save_button.setObjectName(u"calib_save_button")
+        self.calib_save_button.setMinimumSize(QSize(92, 50))
 
         self.horizontalLayout_17.addWidget(self.calib_save_button)
 
 
         self.verticalLayout_10.addWidget(self.frame_11)
+
+        self.reset_calib_button = QPushButton(self.blotting_box_3)
+        self.reset_calib_button.setObjectName(u"reset_calib_button")
+
+        self.verticalLayout_10.addWidget(self.reset_calib_button)
 
 
         self.horizontalLayout_8.addWidget(self.blotting_box_3)
@@ -2031,9 +2117,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.label_9 = QLabel(self.page_dataExport)
         self.label_9.setObjectName(u"label_9")
-        font6 = QFont()
-        font6.setPointSize(40)
-        self.label_9.setFont(font6)
+        font7 = QFont()
+        font7.setPointSize(40)
+        self.label_9.setFont(font7)
         self.label_9.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.label_9.setAlignment(Qt.AlignCenter)
 
@@ -2107,21 +2193,27 @@ class Ui_MainWindow(object):
         self.power_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.pid_control.setText(QCoreApplication.translate("MainWindow", u"Automatic temperature control", None))
         self.current_step_label.setText(QCoreApplication.translate("MainWindow", u"Current Step", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Status", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u" Status", None))
         self.control_box_4.setTitle(QCoreApplication.translate("MainWindow", u"Controls", None))
         self.shutdown_button_4.setText(QCoreApplication.translate("MainWindow", u"Shutdown", None))
         self.prep_button.setText(QCoreApplication.translate("MainWindow", u"Preheat", None))
         self.start_button_4.setText(QCoreApplication.translate("MainWindow", u"Start", None))
         self.plot_box.setTitle(QCoreApplication.translate("MainWindow", u"Plots", None))
         self.plot1_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Chamber \u00b0C", None))
-        self.temp_chamber_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
-        self.temp_chamber_plot_current.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.temp_chamber_plot.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.temp_chamber_plot_current.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Cursor:", None))
         self.plot2_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Humidity %", None))
-        self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
-        self.humid_plot_current.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.humid_plot_current.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Cursor:", None))
         self.plot3_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Cryo Bath \u00b0C", None))
-        self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"           -           ", None))
-        self.temp_cryo_plot_current.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Curent:", None))
+        self.temp_cryo_plot_current.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Cursor:", None))
         self.clear_plots_button.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
@@ -2152,6 +2244,7 @@ class Ui_MainWindow(object):
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Left Arm", None))
         self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"Calibrate", None))
+        self.reset_calib_button.setText(QCoreApplication.translate("MainWindow", u"Reset Calibration", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Data", None))
         self.data_export_button.setText(QCoreApplication.translate("MainWindow", u"Export Data", None))
     # retranslateUi

@@ -45,6 +45,7 @@ shutdown = False
 reset = True
 preheating = False
 pid_running = False
+set_initial_calib = False
 STATUS = 'IDLE'
 STATUS_INTERNAL = 'IDLE'
 ERROR_MSG = ''
@@ -69,6 +70,7 @@ y_cryo = [0.0]
 y_humid = [0.0]
 pid_ps, pid_ds = [0.0], [0.0]
 time_plot = [datetime.datetime.now().strftime("%H:%M:%S")]
+
 
 # Testing
 hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -102,11 +104,11 @@ class Counter(QRunnable):
 
 def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_force, set_blot_nr, set_blot_time,
                   set_humid, set_temp_chamber, set_temp_cryo):
+    s = ''
     global STATUS, STATUS_INTERNAL, reset
     if STATUS_INTERNAL == 'PREHEATING':
         STATUS = "PREHEATING"
         s = 'P/' + str(set_temp_chamber) + "/" + str(set_temp_cryo) + "/" + str(set_humid) + "/"
-        s_binary = bytes(s, 'utf-8')
         print("Preheat", set_temp_chamber, set_temp_cryo, set_humid)
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'UPDATE_BLOT':
@@ -115,55 +117,56 @@ def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_forc
             s = 'S/' + str(set_blot_force) + "/" + str(set_blot_time) + "/" + str(set_blot_nr) + "/"
         else:
             s = 'R/'
-        s_binary = bytes(s, 'utf-8')
         print("BLOT", set_blot_force, set_blot_time, set_blot_nr)
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'SHUTDOWN':
         STATUS = "SHUTDOWN"
         s = 'X/'
-        s_binary = bytes(s, 'utf-8')
         print("SHUTDOWN")
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'CALIBRATE_BLOT':
         STATUS = "CALIBRATING"
         s = 'C/' + str(calib_offset_left) + "/" + str(calib_offset_right) + "/"
-        s_binary = bytes(s, 'utf-8')
         print("CALIBRATING", calib_offset_left, calib_offset_right)
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == 'MANUAL_MOVEMENT':
         STATUS = "MOVE"
         s = 'M/' + str(plunging_pos * 1415) + "/" + str(cryo_pos * 1200) + "/"
-        s_binary = bytes(s, 'utf-8')
         print("MOVING", plunging_pos, cryo_pos)
         STATUS_INTERNAL = 'IDLE'
     elif STATUS_INTERNAL == "HOME_STEPPERS":
         STATUS = 'CURRENTLY_HOMING'
         STATUS_INTERNAL = 'CURRENTLY_HOMING'
         s = 'H/'
-        s_binary = bytes(s, 'utf-8')
         print("HOMING")
     elif STATUS_INTERNAL == 'COOLDOWN':
         STATUS_INTERNAL = 'IDLE'
         STATUS = 'COOLDOWN'
         s = 'O/'
-        s_binary = bytes(s, 'utf-8')
         print("COOLDOWN")
     elif STATUS_INTERNAL == 'START_PID':
         STATUS_INTERNAL = 'IDLE'
         s = 'Y/'
-        s_binary = bytes(s, 'utf-8')
         print("START_PID")
     elif STATUS_INTERNAL == 'STOP_PID':
         STATUS_INTERNAL = 'IDLE'
         s = 'Z/'
-        s_binary = bytes(s, 'utf-8')
         print("STOP_PID")
     elif STATUS_INTERNAL == 'EMERGENCY':
         STATUS_INTERNAL = 'IDLE'
         STATUS = 'EMERGENCY'
         s = 'E/'
-        s_binary = bytes(s, 'utf-8')
         print("EMERGENCY")
+    elif STATUS_INTERNAL == 'CONFIRM_CALIBRATION':
+        STATUS_INTERNAL = 'IDLE'
+        STATUS = 'IDLE'
+        s = 'F/'
+        print("CONFIRM")
+    elif STATUS_INTERNAL == 'RESET_CALIBRATION':
+        STATUS_INTERNAL = 'IDLE'
+        STATUS = 'IDLE'
+        s = 'G/'
+    s_binary = bytes(s, 'utf-8')
     return s_binary
 
 
@@ -192,7 +195,7 @@ class SerialCommunicator(QRunnable):
             set_temp_cryo, set_temp_chamber, set_humid, set_blot_force, \
             set_blot_time, set_blot_nr, shutdown, calib_offset_left, calib_offset_right, \
             calib_successful, waiting_for_serial, x, y_chamber, y_cryo, y_humid, \
-            STATUS_INTERNAL, homing_successful, pid_ps, pid_ds, time_plot, power, water_temp
+            STATUS_INTERNAL, homing_successful, pid_ps, pid_ds, time_plot, power, water_temp, set_initial_calib
 
         while True:
             if waiting_for_serial == False:
@@ -235,14 +238,13 @@ class SerialCommunicator(QRunnable):
                         elif identifier == 'F' and STATUS != "ERROR":
                             ERROR_MSG = msg_split[1]
                             STATUS = "ERROR: " + ERROR_MSG
-                            # window.warning()
                         elif identifier == 'I':
                             STATUS = msg_split[1]
                         elif identifier == 'C':
-                            if msg_split[1] == 'S':
-                                calib_successful = True
-                            elif msg_split[1] == 'F':
-                                calib_successful = False
+                            set_initial_calib = True
+                            calib_successful = True
+                            calib_offset_left, calib_offset_right = int(msg_split[1]), int(msg_split[2])
+
 
                     # if one of the update flags is set --> Send update to UC and reset Flag
                     if STATUS_INTERNAL != 'IDLE':
@@ -342,7 +344,12 @@ class MainWindow(QMainWindow):
         self.ui.prep_button.clicked.connect(lambda: UIFunctions.update_preheat_variables(self))
         self.ui.start_button_4.clicked.connect(lambda: UIFunctions.update_blot_variables(self))
         self.ui.shutdown_button_4.clicked.connect(lambda: UIFunctions.shutdown(self))
-        self.ui.calib_save_button.clicked.connect(lambda: UIFunctions.calibrate_blot_arms(self))
+
+        self.ui.calib_save_button.clicked.connect(lambda: UIFunctions.confirm_calibration(self))
+        self.ui.reset_calib_button.clicked.connect(lambda: UIFunctions.reset_calibration(self))
+        self.ui.calib_right.valueChanged.connect(lambda: UIFunctions.calibrate_blot_arms(self))
+        self.ui.calib_left.valueChanged.connect(lambda: UIFunctions.calibrate_blot_arms(self))
+
         self.ui.data_export_button.clicked.connect(lambda: UIFunctions.write_csv(self))
         self.ui.clear_plots_button.clicked.connect(lambda: UIFunctions.clear_all_plots(self))
         self.ui.pid_control.clicked.connect(lambda: UIFunctions.pid_start(self))
@@ -421,7 +428,8 @@ class UIFunctions(QMainWindow):
         :param status:
         :return:
         """
-        global calib_successful, homing_successful, waiting_for_serial, power, water_temp, shutdown, reset, preheating, pid_running
+        global calib_successful, homing_successful, waiting_for_serial, power, water_temp, shutdown, reset, preheating,\
+            pid_running, set_initial_calib
         self.ui.temp_lable_2.setText(str(temp_chamber) + "°C")
         self.ui.temp_lable_bottom_4.setText(str(temp_cryo) + "°C")
         self.ui.humid_lable_2.setText(str(humid) + "%")
@@ -429,9 +437,16 @@ class UIFunctions(QMainWindow):
         self.ui.water_temp_label.setText(str(water_temp)+ "°C")
         self.ui.current_step_label.setText(str(status))
         self.ui.temp_chamber_plot_current.setText(str(temp_chamber) + "°C")
-        self.ui.humid_plot_current.setText(self.ui.humid_lable_2.setText(str(humid) + "%"))
+        self.ui.humid_plot_current.setText((str(humid) + "%"))
         self.ui.temp_cryo_plot_current.setText(str(temp_cryo) + "°C")
+        if set_initial_calib:
+            calib_offset_right_temp, calib_offset_left_temp = calib_offset_right, calib_offset_left
+            self.ui.calib_right.setValue(calib_offset_right_temp-70)
+            self.ui.calib_left.setValue(calib_offset_left_temp-70)
+            #self.ui.calib_sucess_label.setText(str(calib_offset_right))
+            set_initial_calib = False
         if waiting_for_serial:
+            self.ui.pid_control.setStyleSheet(u"background-color: rgb(170, 0, 0);")
             self.ui.connection_frame.setStyleSheet(u"background-color: rgb(170, 0, 0);")
             self.ui.start_button_4.setChecked(False)
             self.ui.pid_control.setChecked(False)
@@ -457,14 +472,20 @@ class UIFunctions(QMainWindow):
         else:
             self.ui.homing_sucess_label.setText("Failure")
             self.ui.homing_sucess_label.setStyleSheet(u"color: rgb(170, 0, 0);")
-        if status == "IDLE":
+        if STATUS == "IDLE":
             self.ui.progressBar.setValue(0)
         elif status == "PREHEATING":
-            self.ui.progressBar.setValue(25)
-        elif status == "BLOTTING":
-            self.ui.progressBar.setValue(50)
-        elif status == "SHUTDOWN":
-            self.ui.progressBar.setValue(0)
+            val = 100 + (set_temp_cryo-temp_cryo)/abs(set_temp_cryo/100)
+            self.ui.progressBar.setValue(val)
+        elif STATUS == "BLOTTING":
+            i = self.progressBar.getValue()+1
+            print(i)
+            self.ui.progressBar.setValue(i)
+            time.sleep(0.01*set_blot_nr)
+        elif STATUS == "SHUTDOWN":
+            for i in range(100, 0):
+                self.ui.progressBar.setValue(i)
+                time.sleep(0.02)
 
     def update_preheat_variables(self):
         """
@@ -534,7 +555,6 @@ class UIFunctions(QMainWindow):
         """
         global calib_offset_right, calib_offset_left, calib_successful
         global STATUS_INTERNAL
-        calib_successful = True
         calib_offset_right = self.ui.calib_right.value()
         calib_offset_left = self.ui.calib_left.value()
         STATUS_INTERNAL = 'CALIBRATE_BLOT'
@@ -545,6 +565,17 @@ class UIFunctions(QMainWindow):
         self.ui.cryo_slider.setValue(0)
         self.ui.plunging_slider.setValue(100)
         STATUS_INTERNAL = 'HOME_STEPPERS'
+
+    def confirm_calibration(self):
+        global STATUS_INTERNAL,calib_successful, calib_offset_right, calib_offset_left
+        calib_offset_right = self.ui.calib_right.value()
+        calib_offset_left = self.ui.calib_left.value()
+        STATUS_INTERNAL = 'CONFIRM_CALIBRATION'
+
+    def reset_calibration(self):
+        global STATUS_INTERNAL
+        STATUS_INTERNAL = 'RESET_CALIBRATION'
+
 
     def shutdown(self):
         """
@@ -568,10 +599,10 @@ class UIFunctions(QMainWindow):
             # GET WIDTH
             width = self.ui.frame_left_menu.width()
             maxExtend = maxWidth
-            standard = 70
+            standard = 90
 
             # SET MAX WIDTH
-            if width == 70:
+            if width == 90:
                 widthExtended = maxExtend
                 self.ui.button_page_home.setText('          Home')
                 self.ui.button_page_plots.setText('          Plots')
