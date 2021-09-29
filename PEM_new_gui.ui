@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1400</width>
-    <height>865</height>
+    <height>836</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -2152,7 +2152,7 @@ QPushButton:hover{
                         <widget class="QLabel" name="power_label">
                          <property name="font">
                           <font>
-                           <pointsize>16</pointsize>
+                           <pointsize>14</pointsize>
                           </font>
                          </property>
                          <property name="text">

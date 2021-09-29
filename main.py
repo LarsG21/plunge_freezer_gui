@@ -24,8 +24,8 @@ import time
 import serial
 from serial.tools import list_ports
 import datetime
+from UI_splash_screen import Ui_SplashScreen
 
-from testing import DateAxisItem
 
 log_file_name = "logfile" + str(datetime.datetime.now().strftime("%M%S")) + ".log"
 
@@ -39,7 +39,9 @@ from ui_PEM_new_gui import Ui_MainWindow
 from ui_functions import *
 
 ########################################Variables##############################
+counter = 0
 # General
+loading_complete = False
 waiting_for_serial = True
 shutdown = False
 reset = True
@@ -105,9 +107,11 @@ class Counter(QRunnable):
 def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_force, set_blot_nr, set_blot_time,
                   set_humid, set_temp_chamber, set_temp_cryo):
     s = ''
-    global STATUS, STATUS_INTERNAL, reset
+    global STATUS, STATUS_INTERNAL, reset, ERROR_MSG
+    ERROR_MSG = ''
     if STATUS_INTERNAL == 'PREHEATING':
         STATUS = "PREHEATING"
+        ERROR_MSG = ''
         s = 'P/' + str(set_temp_chamber) + "/" + str(set_temp_cryo) + "/" + str(set_humid) + "/"
         print("Preheat", set_temp_chamber, set_temp_cryo, set_humid)
         STATUS_INTERNAL = 'IDLE'
@@ -171,6 +175,11 @@ def state_machine(calib_offset_left, calib_offset_right, s_binary, set_blot_forc
 
 
 class SerialCommunicator(QRunnable):
+
+    def closeEvent(self, event):
+        super(QRunnable, self).closeEvent(event)
+        self.ser.close()
+
     def __init__(self):
         super().__init__()
         use_port = ""
@@ -195,9 +204,12 @@ class SerialCommunicator(QRunnable):
             set_temp_cryo, set_temp_chamber, set_humid, set_blot_force, \
             set_blot_time, set_blot_nr, shutdown, calib_offset_left, calib_offset_right, \
             calib_successful, waiting_for_serial, x, y_chamber, y_cryo, y_humid, \
-            STATUS_INTERNAL, homing_successful, pid_ps, pid_ds, time_plot, power, water_temp, set_initial_calib
+            STATUS_INTERNAL, homing_successful, pid_ps, pid_ds, time_plot, power, water_temp, set_initial_calib, \
+            ERROR_MSG
 
         while True:
+            if loading_complete:
+                window.show()
             if waiting_for_serial == False:
                 try:
                     while self.ser.in_waiting:
@@ -237,7 +249,7 @@ class SerialCommunicator(QRunnable):
                             time_plot.append(datetime.datetime.now().strftime("%H:%M:%S"))
                         elif identifier == 'F' and STATUS != "ERROR":
                             ERROR_MSG = msg_split[1]
-                            STATUS = "ERROR: " + ERROR_MSG
+                            STATUS = ERROR_MSG
                         elif identifier == 'I':
                             STATUS = msg_split[1]
                         elif identifier == 'C':
@@ -290,13 +302,13 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)  # Set up the external generated ui
-
+        UIFunctions.showdialog(self)
         ########################ADD ADITIONAL FUNCTIONALITY LIKE PLOTTING######################
         self.ui.graphWidget = pg.PlotWidget(self.ui.plot1_label)
         # axis = DateAxisItem(orientation='bottom')
         # axis.attachToPlotItem(self.ui.graphWidget.getPlotItem())
         width_plots = 1800
-        height_plots = 270
+        height_plots = 240
         self.ui.graphWidget.setMinimumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget.setMaximumSize(QSize(width_plots, height_plots))
         self.ui.graphWidget.scene().sigMouseMoved.connect(self.onMouseMoved)
@@ -343,7 +355,8 @@ class MainWindow(QMainWindow):
         ###################################################################
         self.ui.prep_button.clicked.connect(lambda: UIFunctions.update_preheat_variables(self))
         self.ui.start_button_4.clicked.connect(lambda: UIFunctions.update_blot_variables(self))
-        self.ui.shutdown_button_4.clicked.connect(lambda: UIFunctions.shutdown(self))
+        #self.ui.shutdown_button_4.clicked.connect(lambda: UIFunctions.shutdown(self))
+        self.ui.shutdown_button_4.clicked.connect(lambda: UIFunctions.show_new_window(self))
 
         self.ui.calib_save_button.clicked.connect(lambda: UIFunctions.confirm_calibration(self))
         self.ui.reset_calib_button.clicked.connect(lambda: UIFunctions.reset_calibration(self))
@@ -363,6 +376,9 @@ class MainWindow(QMainWindow):
 
         ## SHOW ==> MAIN WINDOW
         ########################################################################
+        #w = SplashScreen()
+        #w.show()
+
         self.show()
         ## ==> END ##
 
@@ -390,8 +406,104 @@ class MainWindow(QMainWindow):
                 self.ui.temp_cryo_plot.setText(
                     "<p style='color:white'> {0}°C</p>".format(y_cryo[int(np.round(point.x()))]))
 
+class SplashScreen(QMainWindow):
+
+    def closeEvent(self, event):
+        super(MainWindow, self).closeEvent(event)
+        self.serial_port.close()
+
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_SplashScreen()
+        self.ui.setupUi(self)
+
+        ## UI ==> INTERFACE CODES
+        ########################################################################
+
+        ## REMOVE TITLE BAR
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+
+        ## DROP SHADOW EFFECT
+        self.shadow = QGraphicsDropShadowEffect(self)
+        self.shadow.setBlurRadius(20)
+        self.shadow.setXOffset(0)
+        self.shadow.setYOffset(0)
+        self.shadow.setColor(QColor(0, 0, 0, 60))
+        self.ui.dropShadowFrame.setGraphicsEffect(self.shadow)
+
+        ## QTIMER ==> START
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.progress)
+        # TIMER IN MILLISECONDS
+        self.timer.start(35)
+
+        # CHANGE DESCRIPTION
+
+        # Initial Text
+        self.ui.label_description.setText("<strong>WELCOME</strong> TO MY APPLICATION")
+
+        # Change Texts
+        QtCore.QTimer.singleShot(1500, lambda: self.ui.label_description.setText("<strong>LOADING</strong> DATABASE"))
+        QtCore.QTimer.singleShot(3000, lambda: self.ui.label_description.setText("<strong>LOADING</strong> USER INTERFACE"))
+
+
+        ## SHOW ==> MAIN WINDOW
+        ########################################################################
+        self.show()
+        ## ==> END ##
+
+    ## ==> APP FUNCTIONS
+    ########################################################################
+    def progress(self):
+
+        global counter, loading_complete
+
+        # SET VALUE TO PROGRESS BAR
+        self.ui.progressBar.setValue(counter)
+
+        # CLOSE SPLASH SCREE AND OPEN APP
+        if counter > 100:
+            # STOP TIMER
+            self.timer.stop()
+
+            # SHOW MAIN WINDOW
+            #self.main = MainWindow()
+            loading_complete = True
+            w = MainWindow()
+            w.show()
+
+            # CLOSE SPLASH SCREEN
+            self.close()
+
+        # INCREASE COUNTER
+        counter += 1
 
 class UIFunctions(QMainWindow):
+
+    def show_new_window(self):
+        w = SplashScreen()
+        w.show()
+
+    def showdialog(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Warning)
+
+        msg.setText("Please check if pneumatic is connected."
+                    " Otherwise severe damage could be done to the machine or humans!")
+        msg.setWindowTitle("Pneumatic Check")
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+
+        retval = msg.exec_()
+        if retval == QMessageBox.Ok:
+            print('OK clicked')
+        elif retval == QMessageBox.Cancel:
+            sys.exit(app.exec_())
+        print("value of pressed message box button:", retval)
+
+    def msgbtn(self, i):
+        print("Button pressed is:", i.text())
 
     def emergency_stop(self):
         global  STATUS_INTERNAL
@@ -409,13 +521,15 @@ class UIFunctions(QMainWindow):
         :return:
         """
         global time_plot
+        file_dir = str(QFileDialog.getExistingDirectory(self, "Select Directory"))
+        print(file_dir)
         print(len(time_plot))
         print(len(y_chamber))
         rows = zip(time_plot, y_chamber, y_cryo, y_humid)
         file_name = "Data" + datetime.datetime.now().strftime("%H_%M_%S") + ".csv"
-        with open(("C:\\Users\\larsg\\Desktop\\Data\\" +file_name), "w", newline='') as f:
+        with open((file_dir +file_name), "w", newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(("Time", "Temp_Chamber", "Temp_Cryo", "Temp_Humid"))
+            writer.writerow(("Time", "Temp_Chamber", "Temp_Cryo", "Humid"))
             for row in rows:
                 writer.writerow(row)
 
@@ -429,9 +543,14 @@ class UIFunctions(QMainWindow):
         :return:
         """
         global calib_successful, homing_successful, waiting_for_serial, power, water_temp, shutdown, reset, preheating,\
-            pid_running, set_initial_calib
+            pid_running, set_initial_calib, ERROR_MSG
         self.ui.temp_lable_2.setText(str(temp_chamber) + "°C")
-        self.ui.temp_lable_bottom_4.setText(str(temp_cryo) + "°C")
+        if temp_cryo == 883.39:
+            self.ui.temp_lable_bottom_4.setText("Not Connected")
+        elif temp_cryo <=- 200:
+            self.ui.temp_lable_bottom_4.setText("Short Circuit")
+        else:
+            self.ui.temp_lable_bottom_4.setText(str(temp_cryo) + "°C")
         self.ui.humid_lable_2.setText(str(humid) + "%")
         self.ui.power_label.setText(str(power) + "W")
         self.ui.water_temp_label.setText(str(water_temp)+ "°C")
@@ -439,11 +558,21 @@ class UIFunctions(QMainWindow):
         self.ui.temp_chamber_plot_current.setText(str(temp_chamber) + "°C")
         self.ui.humid_plot_current.setText((str(humid) + "%"))
         self.ui.temp_cryo_plot_current.setText(str(temp_cryo) + "°C")
+        if ERROR_MSG == 'Warning! Water Level Low!':
+            self.ui.current_step_label.setStyleSheet(u"color: rgb(255, 170, 0);")
+            #self.ui.prep_button.setChecked(False)
+            #self.ui.prep_button.setText('Preheat')
+        elif ERROR_MSG != '':
+            if "Error!" in ERROR_MSG:
+                self.ui.current_step_label.setStyleSheet(u"color: rgb(170, 0, 0);")
+            elif "Warning!" in ERROR_MSG:
+                self.ui.current_step_label.setStyleSheet(u"color: rgb(255, 170, 0);")
+        else:
+            self.ui.current_step_label.setStyleSheet(u"color: rgb(255, 255, 255);")
         if set_initial_calib:
             calib_offset_right_temp, calib_offset_left_temp = calib_offset_right, calib_offset_left
             self.ui.calib_right.setValue(calib_offset_right_temp-70)
             self.ui.calib_left.setValue(calib_offset_left_temp-70)
-            #self.ui.calib_sucess_label.setText(str(calib_offset_right))
             set_initial_calib = False
         if waiting_for_serial:
             self.ui.pid_control.setStyleSheet(u"background-color: rgb(170, 0, 0);")
@@ -478,14 +607,18 @@ class UIFunctions(QMainWindow):
             val = 100 + (set_temp_cryo-temp_cryo)/abs(set_temp_cryo/100)
             self.ui.progressBar.setValue(val)
         elif STATUS == "BLOTTING":
-            i = self.progressBar.getValue()+1
+            i = self.ui.progressBar.getValue()+1
             print(i)
             self.ui.progressBar.setValue(i)
             time.sleep(0.01*set_blot_nr)
         elif STATUS == "SHUTDOWN":
-            for i in range(100, 0):
+            if self.ui.progressBar.getValue() > 0:
+                i = self.ui.progressBar.getValue() - 1
                 self.ui.progressBar.setValue(i)
                 time.sleep(0.02)
+        elif STATUS == "RESET_CALIBRATION":
+            self.ui.calib_sucess_label.setText("Failure")
+            self.ui.calib_sucess_label.setStyleSheet(u"color: rgb(170, 0, 0);")
 
     def update_preheat_variables(self):
         """
@@ -628,16 +761,19 @@ if __name__ == "__main__":
     #######################################THREADS#########################################
     pool = QThreadPool.globalInstance()  # Thread to update lables in background
     serial_communicator = SerialCommunicator()
+    #while not loading_complete:
+    #    print("waiting for loading")
+    #    pass
     pool.start(serial_communicator)
-    counter = Counter()
-    #pool.start(counter)
+    counter2 = Counter()
+    #pool.start(counter2)
     ###############################################################
     label_update_timer = QtCore.QTimer()
     plot_timer = QtCore.QTimer()
     # Update the Labels
     label_update_timer.timeout.connect(
         lambda: UIFunctions.update_labels(window, temp_chamber, temp_cryo, humid, STATUS))
-    # Update the Plots
+    #Update the Plots
     plot_timer.timeout.connect(lambda: window.ui.graphWidget.clear())
     plot_timer.timeout.connect(lambda: window.ui.graphWidget.plot(x, y_chamber))
     plot_timer.timeout.connect(lambda: window.ui.graphWidget1.clear())
