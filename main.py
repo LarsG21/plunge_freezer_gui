@@ -26,6 +26,7 @@ from serial.tools import list_ports
 import datetime
 from UI_splash_screen import Ui_SplashScreen
 
+from testing import DateAxisItem
 
 log_file_name = "logfile" + str(datetime.datetime.now().strftime("%M%S")) + ".log"
 
@@ -39,9 +40,7 @@ from ui_PEM_new_gui import Ui_MainWindow
 from ui_functions import *
 
 ########################################Variables##############################
-counter = 0
 # General
-loading_complete = False
 waiting_for_serial = True
 shutdown = False
 reset = True
@@ -52,8 +51,8 @@ STATUS = 'IDLE'
 STATUS_INTERNAL = 'IDLE'
 ERROR_MSG = ''
 
-serial_pid = 42021  # 14155    #42021          # id of the serial device
-
+#serial_pid = 42021  # 14155    #42021          # id of the serial device
+serial_pid = 14155
 # Temp Humid
 set_blot_force, set_blot_time, set_blot_nr = 0.0, 0.0, 0.0
 set_temp_chamber, set_temp_cryo, set_humid = 0, 0, 0
@@ -208,8 +207,8 @@ class SerialCommunicator(QRunnable):
             ERROR_MSG
 
         while True:
-            if loading_complete:
-                window.show()
+            # if loading_complete:
+            #     window.show()
             if waiting_for_serial == False:
                 try:
                     while self.ser.in_waiting:
@@ -573,6 +572,7 @@ class UIFunctions(QMainWindow):
             calib_offset_right_temp, calib_offset_left_temp = calib_offset_right, calib_offset_left
             self.ui.calib_right.setValue(calib_offset_right_temp-70)
             self.ui.calib_left.setValue(calib_offset_left_temp-70)
+            #self.ui.calib_sucess_label.setText(str(calib_offset_right))
             set_initial_calib = False
         if waiting_for_serial:
             self.ui.pid_control.setStyleSheet(u"background-color: rgb(170, 0, 0);")
@@ -766,7 +766,7 @@ if __name__ == "__main__":
     #    pass
     pool.start(serial_communicator)
     counter2 = Counter()
-    #pool.start(counter2)
+    pool.start(counter2)
     ###############################################################
     label_update_timer = QtCore.QTimer()
     plot_timer = QtCore.QTimer()

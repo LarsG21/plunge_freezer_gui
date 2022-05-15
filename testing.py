@@ -188,7 +188,6 @@ if __name__ == '__main__':
     import time
     import sys
     import pyqtgraph as pg
-    from PyQt5 import QtGui
 
     app = QApplication(sys.argv)
 
