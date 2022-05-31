@@ -833,6 +833,9 @@ QSlider::handle:horizontal:disabled
 }
 
 
+
+
+
 /*-----QScrollBar-----*/
 QScrollBar:horizontal
 {

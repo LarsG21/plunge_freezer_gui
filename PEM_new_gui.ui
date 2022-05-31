@@ -1547,7 +1547,7 @@ QPushButton:hover{
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page_home">
              <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1668,7 +1668,12 @@ QPushButton:hover{
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true"/>
+                          <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
                          </property>
                          <property name="value">
                           <double>22.000000000000000</double>
@@ -1788,6 +1793,14 @@ QPushButton:hover{
                            <height>81</height>
                           </size>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
+                         </property>
                          <property name="decimals">
                           <number>0</number>
                          </property>
@@ -1855,6 +1868,14 @@ QPushButton:hover{
                            <height>61</height>
                           </size>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
+                         </property>
                          <property name="decimals">
                           <number>0</number>
                          </property>
@@ -1905,6 +1926,14 @@ QPushButton:hover{
                            <height>61</height>
                           </size>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
+                         </property>
                          <property name="decimals">
                           <number>0</number>
                          </property>
@@ -1953,6 +1982,14 @@ QPushButton:hover{
                            <width>121</width>
                            <height>61</height>
                           </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
                          </property>
                          <property name="decimals">
                           <number>0</number>
@@ -2115,6 +2152,14 @@ QPushButton:hover{
                            <height>81</height>
                           </size>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
+                         </property>
                          <property name="minimum">
                           <double>-200.000000000000000</double>
                          </property>
@@ -2189,6 +2234,49 @@ QPushButton:hover{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_5">
+                    <item row="2" column="0">
+                     <widget class="QFrame" name="frame_26">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>80</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>100</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_28">
+                       <item>
+                        <widget class="QProgressBar" name="progressBar">
+                         <property name="minimumSize">
+                          <size>
+                           <width>300</width>
+                           <height>31</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>300</width>
+                           <height>31</height>
+                          </size>
+                         </property>
+                         <property name="value">
+                          <number>42</number>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
                     <item row="3" column="0">
                      <widget class="QFrame" name="frame_27">
                       <property name="maximumSize">
@@ -2273,49 +2361,6 @@ QPushButton:hover{
                          </property>
                          <property name="text">
                           <string> Status</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item row="2" column="0">
-                     <widget class="QFrame" name="frame_26">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>80</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>100</height>
-                       </size>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_28">
-                       <item>
-                        <widget class="QProgressBar" name="progressBar">
-                         <property name="minimumSize">
-                          <size>
-                           <width>300</width>
-                           <height>31</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>300</width>
-                           <height>31</height>
-                          </size>
-                         </property>
-                         <property name="value">
-                          <number>42</number>
                          </property>
                         </widget>
                        </item>
@@ -3107,6 +3152,14 @@ QPushButton:hover{
                              <height>80</height>
                             </size>
                            </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
+                           </property>
                            <property name="suffix">
                             <string/>
                            </property>
@@ -3167,6 +3220,14 @@ QPushButton:hover{
                              <width>121</width>
                              <height>80</height>
                             </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: #252525;
+color : #eee;
+border: 1px solid #343434;
+padding: 3px;
+padding-left: 5px;
+border-radius : 2px;</string>
                            </property>
                            <property name="decimals">
                             <number>0</number>

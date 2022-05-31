@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PEM_new_guiwgXcmF.ui'
+## Form generated from reading UI file 'PEM_new_guiLATmzf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -16,8 +16,8 @@ from PySide2.QtWidgets import *
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
-            MainWindow.setObjectName(u"PEMpire-State-Building")
-        MainWindow.resize(1400, 865)
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(1400, 836)
         MainWindow.setMinimumSize(QSize(1400, 800))
         font = QFont()
         font.setPointSize(11)
@@ -1321,7 +1321,12 @@ class Ui_MainWindow(object):
         self.temp_control_2 = QDoubleSpinBox(self.frame_22)
         self.temp_control_2.setObjectName(u"temp_control_2")
         self.temp_control_2.setMinimumSize(QSize(141, 81))
-        self.temp_control_2.setStyleSheet(u"")
+        self.temp_control_2.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.temp_control_2.setValue(22.000000000000000)
 
         self.horizontalLayout_26.addWidget(self.temp_control_2)
@@ -1378,6 +1383,12 @@ class Ui_MainWindow(object):
         self.humid_control_2 = QDoubleSpinBox(self.frame_23)
         self.humid_control_2.setObjectName(u"humid_control_2")
         self.humid_control_2.setMinimumSize(QSize(141, 81))
+        self.humid_control_2.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.humid_control_2.setDecimals(0)
         self.humid_control_2.setValue(80.000000000000000)
 
@@ -1413,6 +1424,12 @@ class Ui_MainWindow(object):
         self.blotting_force_control_2 = QDoubleSpinBox(self.frame_6)
         self.blotting_force_control_2.setObjectName(u"blotting_force_control_2")
         self.blotting_force_control_2.setMinimumSize(QSize(121, 61))
+        self.blotting_force_control_2.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.blotting_force_control_2.setDecimals(0)
         self.blotting_force_control_2.setMaximum(10.000000000000000)
         self.blotting_force_control_2.setValue(5.000000000000000)
@@ -1441,6 +1458,12 @@ class Ui_MainWindow(object):
         self.blotting_time_control_2 = QDoubleSpinBox(self.frame_7)
         self.blotting_time_control_2.setObjectName(u"blotting_time_control_2")
         self.blotting_time_control_2.setMinimumSize(QSize(121, 61))
+        self.blotting_time_control_2.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.blotting_time_control_2.setDecimals(0)
         self.blotting_time_control_2.setMaximum(10.000000000000000)
         self.blotting_time_control_2.setValue(3.000000000000000)
@@ -1466,6 +1489,12 @@ class Ui_MainWindow(object):
         self.blotting_number_control_2 = QDoubleSpinBox(self.frame_8)
         self.blotting_number_control_2.setObjectName(u"blotting_number_control_2")
         self.blotting_number_control_2.setMinimumSize(QSize(121, 61))
+        self.blotting_number_control_2.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.blotting_number_control_2.setDecimals(0)
         self.blotting_number_control_2.setMaximum(10.000000000000000)
         self.blotting_number_control_2.setValue(1.000000000000000)
@@ -1542,6 +1571,12 @@ class Ui_MainWindow(object):
         self.temp_control_botttom_4 = QDoubleSpinBox(self.frame_5)
         self.temp_control_botttom_4.setObjectName(u"temp_control_botttom_4")
         self.temp_control_botttom_4.setMinimumSize(QSize(141, 81))
+        self.temp_control_botttom_4.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.temp_control_botttom_4.setMinimum(-200.000000000000000)
         self.temp_control_botttom_4.setValue(-180.000000000000000)
 
@@ -1588,6 +1623,25 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_5 = QGridLayout(self.frame)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.frame_26 = QFrame(self.frame)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setMinimumSize(QSize(0, 80))
+        self.frame_26.setMaximumSize(QSize(16777215, 100))
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_28 = QHBoxLayout(self.frame_26)
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.progressBar = QProgressBar(self.frame_26)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setMinimumSize(QSize(300, 31))
+        self.progressBar.setMaximumSize(QSize(300, 31))
+        self.progressBar.setValue(42)
+
+        self.horizontalLayout_28.addWidget(self.progressBar)
+
+
+        self.gridLayout_5.addWidget(self.frame_26, 2, 0, 1, 1)
+
         self.frame_27 = QFrame(self.frame)
         self.frame_27.setObjectName(u"frame_27")
         self.frame_27.setMaximumSize(QSize(16777215, 80))
@@ -1624,25 +1678,6 @@ class Ui_MainWindow(object):
 
 
         self.gridLayout_5.addWidget(self.frame_28, 1, 0, 1, 1)
-
-        self.frame_26 = QFrame(self.frame)
-        self.frame_26.setObjectName(u"frame_26")
-        self.frame_26.setMinimumSize(QSize(0, 80))
-        self.frame_26.setMaximumSize(QSize(16777215, 100))
-        self.frame_26.setFrameShape(QFrame.StyledPanel)
-        self.frame_26.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_28 = QHBoxLayout(self.frame_26)
-        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
-        self.progressBar = QProgressBar(self.frame_26)
-        self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setMinimumSize(QSize(300, 31))
-        self.progressBar.setMaximumSize(QSize(300, 31))
-        self.progressBar.setValue(42)
-
-        self.horizontalLayout_28.addWidget(self.progressBar)
-
-
-        self.gridLayout_5.addWidget(self.frame_26, 2, 0, 1, 1)
 
 
         self.horizontalLayout_11.addWidget(self.frame)
@@ -2037,6 +2072,12 @@ class Ui_MainWindow(object):
         self.calib_right = QDoubleSpinBox(self.frame_9)
         self.calib_right.setObjectName(u"calib_right")
         self.calib_right.setMinimumSize(QSize(121, 80))
+        self.calib_right.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.calib_right.setDecimals(0)
         self.calib_right.setMinimum(-100.000000000000000)
         self.calib_right.setMaximum(200.000000000000000)
@@ -2064,6 +2105,12 @@ class Ui_MainWindow(object):
         self.calib_left = QDoubleSpinBox(self.frame_10)
         self.calib_left.setObjectName(u"calib_left")
         self.calib_left.setMinimumSize(QSize(121, 80))
+        self.calib_left.setStyleSheet(u"background-color: #252525;\n"
+"color : #eee;\n"
+"border: 1px solid #343434;\n"
+"padding: 3px;\n"
+"padding-left: 5px;\n"
+"border-radius : 2px;")
         self.calib_left.setDecimals(0)
         self.calib_left.setMinimum(-100.000000000000000)
         self.calib_left.setMaximum(200.000000000000000)
@@ -2148,14 +2195,14 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.button_page_home.setDefault(False)
-        self.pages_widget.setCurrentIndex(0)
+        self.pages_widget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("PEMpire-State-Building", u"PEMpire-State-Building", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.toggle_button.setText("")
         self.go_settings_button.setText("")
 #if QT_CONFIG(whatsthis)
@@ -2164,59 +2211,59 @@ class Ui_MainWindow(object):
         self.button_page_home.setText("")
         self.button_page_plots.setText("")
         self.button_page_Data.setText("")
-        self.emergency_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"STOP", None))
+        self.emergency_button.setText(QCoreApplication.translate("MainWindow", u"STOP", None))
 #if QT_CONFIG(whatsthis)
         self.pages_widget.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
-        self.upper_chamer_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Upper Chamber", None))
-        self.temp_box_2.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Temperature", None))
-        self.label.setText(QCoreApplication.translate("PEMpire-State-Building", u"Current:", None))
-        self.temp_lable_2.setText(QCoreApplication.translate("PEMpire-State-Building", u"TextLabel", None))
-        self.label_2.setText(QCoreApplication.translate("PEMpire-State-Building", u"Set to:", None))
-        self.humid_box_2.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Humidity", None))
-        self.label_3.setText(QCoreApplication.translate("PEMpire-State-Building", u"Current:", None))
-        self.humid_lable_2.setText(QCoreApplication.translate("PEMpire-State-Building", u"TextLabel", None))
-        self.label_7.setText(QCoreApplication.translate("PEMpire-State-Building", u"Set to:", None))
-        self.blotting_box_2.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Blotting", None))
-        self.label_4.setText(QCoreApplication.translate("PEMpire-State-Building", u"Force:", None))
-        self.label_5.setText(QCoreApplication.translate("PEMpire-State-Building", u"Time:", None))
-        self.label_6.setText(QCoreApplication.translate("PEMpire-State-Building", u"Number:", None))
+        self.upper_chamer_box.setTitle(QCoreApplication.translate("MainWindow", u"Upper Chamber", None))
+        self.temp_box_2.setTitle(QCoreApplication.translate("MainWindow", u"Temperature", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.temp_lable_2.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Set to:", None))
+        self.humid_box_2.setTitle(QCoreApplication.translate("MainWindow", u"Humidity", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.humid_lable_2.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Set to:", None))
+        self.blotting_box_2.setTitle(QCoreApplication.translate("MainWindow", u"Blotting", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Force:", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Time:", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Number:", None))
 #if QT_CONFIG(whatsthis)
         self.cryo_box.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
-        self.cryo_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Cryo Bath", None))
-        self.temp_box_bottom_4.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Temperature", None))
-        self.label_8.setText(QCoreApplication.translate("PEMpire-State-Building", u"Current:", None))
-        self.temp_lable_bottom_4.setText(QCoreApplication.translate("PEMpire-State-Building", u"TextLabel", None))
-        self.label_12.setText(QCoreApplication.translate("PEMpire-State-Building", u"Set to:", None))
-        self.lable2.setText(QCoreApplication.translate("PEMpire-State-Building", u"Heating power", None))
-        self.power_label.setText(QCoreApplication.translate("PEMpire-State-Building", u"-", None))
-        self.pid_control.setText(QCoreApplication.translate("PEMpire-State-Building", u"Automatic temperature control", None))
-        self.current_step_label.setText(QCoreApplication.translate("PEMpire-State-Building", u"Current Step", None))
-        self.label_22.setText(QCoreApplication.translate("PEMpire-State-Building", u" Status", None))
-        self.control_box_4.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Controls", None))
-        self.shutdown_button_4.setText(QCoreApplication.translate("PEMpire-State-Building", u"Shutdown", None))
-        self.prep_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Preheat", None))
-        self.start_button_4.setText(QCoreApplication.translate("PEMpire-State-Building", u"Start", None))
-        self.plot_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Plots", None))
-        self.plot1_label_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Temp Chamber \u00b0C", None))
-        self.temp_chamber_plot.setText(QCoreApplication.translate("PEMpire-State-Building", u"       -           ", None))
-        self.temp_chamber_plot_current.setText(QCoreApplication.translate("PEMpire-State-Building", u"       -           ", None))
-        self.label_14.setText(QCoreApplication.translate("PEMpire-State-Building", u"Current:", None))
-        self.label_17.setText(QCoreApplication.translate("PEMpire-State-Building", u"Cursor:", None))
-        self.plot2_label_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Humidity %", None))
-        self.label_15.setText(QCoreApplication.translate("PEMpire-State-Building", u"Current:", None))
-        self.humid_plot_current.setText(QCoreApplication.translate("PEMpire-State-Building", u"       -           ", None))
-        self.humid_plot.setText(QCoreApplication.translate("PEMpire-State-Building", u"       -           ", None))
-        self.label_18.setText(QCoreApplication.translate("PEMpire-State-Building", u"Cursor:", None))
-        self.plot3_label_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Temp Cryo Bath \u00b0C", None))
-        self.temp_cryo_plot.setText(QCoreApplication.translate("PEMpire-State-Building", u"       -           ", None))
-        self.label_16.setText(QCoreApplication.translate("PEMpire-State-Building", u"Curent:", None))
-        self.temp_cryo_plot_current.setText(QCoreApplication.translate("PEMpire-State-Building", u"       -           ", None))
-        self.label_19.setText(QCoreApplication.translate("PEMpire-State-Building", u"Cursor:", None))
-        self.clear_plots_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Clear", None))
-        self.settings_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Settings", None))
-        self.stepper_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Steppers", None))
+        self.cryo_box.setTitle(QCoreApplication.translate("MainWindow", u"Cryo Bath", None))
+        self.temp_box_bottom_4.setTitle(QCoreApplication.translate("MainWindow", u"Temperature", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.temp_lable_bottom_4.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Set to:", None))
+        self.lable2.setText(QCoreApplication.translate("MainWindow", u"Heating power", None))
+        self.power_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.pid_control.setText(QCoreApplication.translate("MainWindow", u"Automatic temperature control", None))
+        self.current_step_label.setText(QCoreApplication.translate("MainWindow", u"Current Step", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u" Status", None))
+        self.control_box_4.setTitle(QCoreApplication.translate("MainWindow", u"Controls", None))
+        self.shutdown_button_4.setText(QCoreApplication.translate("MainWindow", u"Shutdown", None))
+        self.prep_button.setText(QCoreApplication.translate("MainWindow", u"Preheat", None))
+        self.start_button_4.setText(QCoreApplication.translate("MainWindow", u"Start", None))
+        self.plot_box.setTitle(QCoreApplication.translate("MainWindow", u"Plots", None))
+        self.plot1_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Chamber \u00b0C", None))
+        self.temp_chamber_plot.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.temp_chamber_plot_current.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Cursor:", None))
+        self.plot2_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Humidity %", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Current:", None))
+        self.humid_plot_current.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.humid_plot.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Cursor:", None))
+        self.plot3_label_box.setTitle(QCoreApplication.translate("MainWindow", u"Temp Cryo Bath \u00b0C", None))
+        self.temp_cryo_plot.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Curent:", None))
+        self.temp_cryo_plot_current.setText(QCoreApplication.translate("MainWindow", u"       -           ", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Cursor:", None))
+        self.clear_plots_button.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.settings_box.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.stepper_box.setTitle(QCoreApplication.translate("MainWindow", u"Steppers", None))
 #if QT_CONFIG(statustip)
         self.plunging_lable.setStatusTip("")
 #endif // QT_CONFIG(statustip)
@@ -2229,23 +2276,23 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(accessibility)
         self.plunging_lable.setAccessibleDescription("")
 #endif // QT_CONFIG(accessibility)
-        self.plunging_lable.setText(QCoreApplication.translate("PEMpire-State-Building", u"Plunging Arm", None))
-        self.cryo_lable.setText(QCoreApplication.translate("PEMpire-State-Building", u"Cryo Platfom", None))
-        self.homing_sucess_label.setText(QCoreApplication.translate("PEMpire-State-Building", u"-", None))
-        self.home_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Home Steppers", None))
-        self.data_box.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Configuration", None))
-        self.buzzer_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Buzzer on", None))
-        self.checkBox_3.setText(QCoreApplication.translate("PEMpire-State-Building", u"RGB on", None))
-        self.label_13.setText(QCoreApplication.translate("PEMpire-State-Building", u"Water Temp:", None))
-        self.water_temp_label.setText(QCoreApplication.translate("PEMpire-State-Building", u"-", None))
-        self.blotting_box_3.setTitle(QCoreApplication.translate("PEMpire-State-Building", u"Blotting Calibration", None))
-        self.label_10.setText(QCoreApplication.translate("PEMpire-State-Building", u"Right Arm", None))
+        self.plunging_lable.setText(QCoreApplication.translate("MainWindow", u"Plunging Arm", None))
+        self.cryo_lable.setText(QCoreApplication.translate("MainWindow", u"Cryo Platfom", None))
+        self.homing_sucess_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.home_button.setText(QCoreApplication.translate("MainWindow", u"Home Steppers", None))
+        self.data_box.setTitle(QCoreApplication.translate("MainWindow", u"Configuration", None))
+        self.buzzer_button.setText(QCoreApplication.translate("MainWindow", u"Buzzer on", None))
+        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"RGB on", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Water Temp:", None))
+        self.water_temp_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.blotting_box_3.setTitle(QCoreApplication.translate("MainWindow", u"Blotting Calibration", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Right Arm", None))
         self.calib_right.setSuffix("")
-        self.label_11.setText(QCoreApplication.translate("PEMpire-State-Building", u"Left Arm", None))
-        self.calib_sucess_label.setText(QCoreApplication.translate("PEMpire-State-Building", u"-", None))
-        self.calib_save_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Calibrate", None))
-        self.reset_calib_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Reset Calibration", None))
-        self.label_9.setText(QCoreApplication.translate("PEMpire-State-Building", u"Page Data", None))
-        self.data_export_button.setText(QCoreApplication.translate("PEMpire-State-Building", u"Export Data", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Left Arm", None))
+        self.calib_sucess_label.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.calib_save_button.setText(QCoreApplication.translate("MainWindow", u"Calibrate", None))
+        self.reset_calib_button.setText(QCoreApplication.translate("MainWindow", u"Reset Calibration", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Page Data", None))
+        self.data_export_button.setText(QCoreApplication.translate("MainWindow", u"Export Data", None))
     # retranslateUi
 
