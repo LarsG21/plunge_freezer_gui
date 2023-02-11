@@ -1,4 +1,4 @@
-# PEM_GUI
+# Plunge Freezer GUI
 
 ## Description
 In this Project, we created a so-called [Plunge Freezer](https://en.wikipedia.org/wiki/Cryofixation). This is a device to rapidly shock frost biological cells to inspect them under a microscope afterwards.
