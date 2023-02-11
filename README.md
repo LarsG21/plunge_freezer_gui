@@ -11,8 +11,9 @@ You can control the plunge freezer, look at the sensor outputs from the device i
 Additional information can be found in the [Datasheet](./Recources/Datasheet.pdf).
 
 
+
 <p align="center">
-  <img src="./Recources/gui_main.PNG" width="600" title="The main UI window" />
+  <img src="./Recources/gui_main_new.PNG" width="600" title="The main UI window" />
   <img src="./Recources/gui_graphs.PNG" width="600" title="The window to inspect the graphs" /> 
-  <img src="./Recources/gui_settings.PNG" width="600" title="A settings window" />
+  <img src="./Recources/gui_settings_new.PNG" width="600" title="A settings window" />
 </p>
