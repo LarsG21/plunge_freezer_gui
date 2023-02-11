@@ -26,7 +26,7 @@ from serial.tools import list_ports
 import datetime
 from UI_splash_screen import Ui_SplashScreen
 
-from testing import DateAxisItem
+# from testing import DateAxisItem
 
 log_file_name = "logfile" + str(datetime.datetime.now().strftime("%M%S")) + ".log"
 
@@ -37,7 +37,7 @@ log_file_name = "logfile" + str(datetime.datetime.now().strftime("%M%S")) + ".lo
 from ui_PEM_new_gui import Ui_MainWindow
 
 # IMPORT FUNCTIONS
-from ui_functions import *
+# from ui_functions import *
 
 ########################################Variables##############################
 # General
@@ -782,6 +782,8 @@ if __name__ == "__main__":
     plot_timer.timeout.connect(lambda: window.ui.graphWidget2.plot(x, y_cryo))
     plot_timer.start(400)
     label_update_timer.start(100)  # every 100 milliseconds
-    #############################################################################
+    ###########################################################
+    #
+    # ##################
 
     sys.exit(app.exec_())
